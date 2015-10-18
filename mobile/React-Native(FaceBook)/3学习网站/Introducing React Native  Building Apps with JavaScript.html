@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<!-- saved from url=(0084)http://www.raywenderlich.com/99473/introducing-react-native-building-apps-javascript -->
+<html lang="en-US" class="windows chrome"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<script type="text/javascript" async="" src="./Introducing React Native  Building Apps with JavaScript_files/cc.js"></script><script type="text/javascript" async="" src="./Introducing React Native  Building Apps with JavaScript_files/itunes_autolinkmaker.js"></script><script async="" src="./Introducing React Native  Building Apps with JavaScript_files/fbds.js"></script><script type="text/javascript" async="" src="./Introducing React Native  Building Apps with JavaScript_files/ga.js"></script><script type="text/javascript" async="" src="http://www.google.com/cse/cse.js?cx=014141977933580679837:nad2btglbby"></script><script id="facebook-jssdk" async="" src="./Introducing React Native  Building Apps with JavaScript_files/all.js"></script><script type="text/javascript" lang="en">var rootTag = document.getElementsByTagName("html");var classes = rootTag[0].className;rootTag[0].className = classes.replace("no-js","");if (navigator.appVersion.indexOf("Win")==-1) { classes = rootTag[0].className;rootTag[0].className = classes.replace("windows","") } </script>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+							<title>Introducing React Native: Building Apps with JavaScript</title>
+									<meta name="twitter:card" content="photo">
+					<meta name="twitter:site" content="@rwenderlich">
+					<meta name="twitter:title" content="Introducing React Native: Building Apps with JavaScript">
+					<meta name="twitter:description" content="React Native by Facebook is an open-source framework allowing you to build fully native iOS and Android apps in JavaScript. Learn how in this tutorial.">
+					<meta name="twitter:url" content="http://www.raywenderlich.com/99473/introducing-react-native-building-apps-javascript">
+					<meta name="twitter:image" content="http://cdn1.raywenderlich.com/wp-content/uploads/2015/03/twitter-card.png">
+												
+										<meta property="og:title" content="Introducing React Native: Building Apps with JavaScript">
+				<meta property="og:type" content="article">
+				<meta property="og:site_name" content="Ray Wenderlich">
+       		    <meta property="og:url" content="http://www.raywenderlich.com/99473/introducing-react-native-building-apps-javascript">
+				<meta property="og:description" content="React Native by Facebook is an open-source framework allowing you to build fully native iOS and Android apps in JavaScript. Learn how in this tutorial.">
+									<meta property="og:image" content="http://cdn4.raywenderlich.com/wp-content/uploads/2015/03/logo-500x500.png">
+					
+<!-- This site is optimized with the Yoast WordPress SEO plugin v2.1.1 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="React Native by Facebook is an open-source framework allowing you to build fully native iOS and Android apps in JavaScript. Learn how in this tutorial.">
+<link rel="canonical" href="./Introducing React Native  Building Apps with JavaScript_files/Introducing React Native  Building Apps with JavaScript.html">
+<script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"WebSite","url":"http:\/\/www.raywenderlich.com\/","name":"Ray Wenderlich"}</script>
+<!-- / Yoast WordPress SEO plugin. -->
+
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"http:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/www.raywenderlich.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.2.2"}};
+			!function(a,b,c){function d(a){var c=b.createElement("canvas"),d=c.getContext&&c.getContext("2d");return d&&d.fillText?(d.textBaseline="top",d.font="600 32px Arial","flag"===a?(d.fillText(String.fromCharCode(55356,56812,55356,56807),0,0),c.toDataURL().length>3e3):(d.fillText(String.fromCharCode(55357,56835),0,0),0!==d.getImageData(16,16,1,1).data[0])):!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g;c.supports={simple:d("simple"),flag:d("flag")},c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.simple&&c.supports.flag||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./Introducing React Native  Building Apps with JavaScript_files/wp-emoji-release.min.js" type="text/javascript"></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="wpsqt-main-css" href="./Introducing React Native  Building Apps with JavaScript_files/main.css" type="text/css" media="all">
+<link rel="stylesheet" id="style-main-css" href="./Introducing React Native  Building Apps with JavaScript_files/style.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="contact-form-7-css" href="./Introducing React Native  Building Apps with JavaScript_files/styles.css" type="text/css" media="all">
+<link rel="stylesheet" id="swiftype-css" href="./Introducing React Native  Building Apps with JavaScript_files/autocomplete.css" type="text/css" media="all">
+<link rel="stylesheet" id="videojs-plugin-css" href="./Introducing React Native  Building Apps with JavaScript_files/plugin-styles.css" type="text/css" media="all">
+<link rel="stylesheet" id="videojs-css" href="./Introducing React Native  Building Apps with JavaScript_files/video-js.css" type="text/css" media="all">
+<link rel="stylesheet" id="wp-polls-css" href="./Introducing React Native  Building Apps with JavaScript_files/polls-css.css" type="text/css" media="all">
+<style id="wp-polls-inline-css" type="text/css">
+.wp-polls .pollbar {
+	margin: 1px;
+	font-size: 6px;
+	line-height: 8px;
+	height: 8px;
+	background-image: url('http://www.raywenderlich.com/wp-content/plugins/wp-polls/images/default/pollbg.gif');
+	border: 1px solid #c8c8c8;
+}
+
+</style>
+<script type="text/javascript" src="./Introducing React Native  Building Apps with JavaScript_files/player.min.js"></script>
+<script type="text/javascript" src="./Introducing React Native  Building Apps with JavaScript_files/jquery.js"></script>
+<script type="text/javascript" src="./Introducing React Native  Building Apps with JavaScript_files/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="./Introducing React Native  Building Apps with JavaScript_files/site.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var swiftypeParams = {"engineKey":"omdTFN4ka9Dq1GBywQZq"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Introducing React Native  Building Apps with JavaScript_files/install_swiftype.min.js"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.raywenderlich.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://cdn5.raywenderlich.com/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 4.2.2">
+<link rel="shortlink" href="http://www.raywenderlich.com/?p=99473">
+<script type="text/javascript"><!--
+function powerpress_pinw(pinw){window.open('http://www.raywenderlich.com/?powerpress_pinw='+pinw, 'PowerPressPlayer','toolbar=0,status=0,resizable=1,width=460,height=320');	return false;}
+powerpress_url = 'http://cdn1.raywenderlich.com/wp-content/plugins/powerpress/';
+//-->
+</script>
+
+		<script type="text/javascript"> document.createElement("video");document.createElement("audio");document.createElement("track"); </script>
+		<style type="text/css">
+/* <![CDATA[ */
+img.latex { vertical-align: middle; border: none; }
+/* ]]> */
+</style>
+		<link rel="stylesheet" href="./Introducing React Native  Building Apps with JavaScript_files/print.css" type="text/css" media="print">
+		<link rel="profile" href="http://gmpg.org/xfn/11">
+		<link rel="pingback" href="http://www.raywenderlich.com/xmlrpc.php">	
+		<script>var siteUrl = 'http://cdn1.raywenderlich.com/wp-content/themes/raywenderlich'</script>
+		<script src="./Introducing React Native  Building Apps with JavaScript_files/global_combined.1.0.8.js" type="text/javascript"></script><script type="text/javascript" async="" src="./Introducing React Native  Building Apps with JavaScript_files/bsa.js"></script><script type="text/javascript" async="" src="./Introducing React Native  Building Apps with JavaScript_files/a.min.js"></script>
+		<script src="./Introducing React Native  Building Apps with JavaScript_files/jquery-ui-1.10.2.custom.min.js"></script>
+		<script src="./Introducing React Native  Building Apps with JavaScript_files/jquery.multi-accordion-1.5.3.js"></script>
+		<script>(function() {
+			var _fbq = window._fbq || (window._fbq = []);
+			if (!_fbq.loaded) {
+			var fbds = document.createElement('script');
+			fbds.async = true;
+			fbds.src = '//connect.facebook.net/en_US/fbds.js';
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(fbds, s);
+			_fbq.loaded = true;
+			}
+			_fbq.push(['addPixelId', '915433011818742']);
+			})();
+			window._fbq = window._fbq || [];
+			window._fbq.push(['track', 'PixelInitialized', {}]);
+		</script>
+<noscript>&lt;img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?id=915433011818742&amp;amp;ev=PixelInitialized" /&gt;</noscript>
+	<script type="text/javascript" async="" src="./Introducing React Native  Building Apps with JavaScript_files/a.min(1).js"></script><script type="text/javascript" id="_bsap_js_39fcef7ed4520883d78f129c33995fd2" src="./Introducing React Native  Building Apps with JavaScript_files/s_39fcef7ed4520883d78f129c33995fd2.js" async="async"></script><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_close_icon:active{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_loader{background-color:#f6f7f8;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #3a5795;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{max-height:590px;min-height:590px;max-width:500px;min-width:500px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;left:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #2f477a;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f6f7f8;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}</style><script type="text/javascript" src="./Introducing React Native  Building Apps with JavaScript_files/pro.js" id="_bsap_premium_pro"></script><script type="text/javascript" id="_bsaPRO_js" src="./Introducing React Native  Building Apps with JavaScript_files/CV7IEKT;CV7IEKV" async="async"></script></head>
+	
+	<body class="single single-post postid-99473 single-format-standard"> 
+		<div id="wrapper">
+			<header id="branding" class="rw_subservice">
+				<div id="site-details" class="wrapper clearfix rw_subservice">
+					<hgroup id="site-logo" class="clearfix">
+						<h1 id="site-title"><a href="http://www.raywenderlich.com/" title="Ray Wenderlich" class="image" rel="home" sl-processed="1">Ray Wenderlich</a></h1>
+						<h2 id="site-name"><a href="http://www.raywenderlich.com/" sl-processed="1"><span class="first-name">RAY</span><span class="last-name">WENDERLICH</span></a></h2>
+						<h2 id="site-motto"><a href="http://www.raywenderlich.com/" sl-processed="1">TUTORIALS FOR DEVELOPERS &amp; GAMERS</a></h2>		
+						<h2 id="site-description"><a href="http://www.raywenderlich.com/" border="0" sl-processed="1">Tutorials for iPhone / iOS Developers and Gamers</a></h2>
+					</hgroup>
+					<nav class="navtext">
+						<h1>Site Navigation</h1>
+						<ul id="user-account-navigation" class="logged-in">
+							<li class="login">					<ul id="user-account-navigation" class="logged-out">
+						<li class="login-link"><a href="http://www.raywenderlich.com/login" sl-processed="1">LOGIN</a></li>
+						<li class="separator"></li>
+						<li class="sign-out-link"><a href="http://www.raywenderlich.com/login?section=new-account" sl-processed="1">SIGN UP</a></li>
+					</ul>
+				</li>
+							<script>			
+								jQuery.ajax({
+									type : "POST",
+									data : { "javascript" : "false" },
+									url : "http://www.raywenderlich.com/wp-content/themes/raywenderlich/templates/login_area.php",
+									cache : false,
+								}).done(function(html) {
+									jQuery("#user-account-navigation li").html(html);	
+								})
+							</script>
+						</ul>			    
+						<ul id="sitewide-nagivation">
+							<li class="about"><a href="http://www.raywenderlich.com/104320/open-call-for-writers-and-editors" style="margin-right: 10px;" sl-processed="1">Write For Us</a></li>
+							<li class="about"><a href="http://www.raywenderlich.com/about" sl-processed="1">About</a></li>
+							<li class="language">
+								<ul id="languagenav">
+			    	    			<li id="language">
+			    	    							    	    			</li>
+								</ul>
+							</li>
+						</ul>
+					</nav>
+				</div>
+				<div class="navigation-band rw_subservice">
+					<div class="wrapper clearfix">
+						<ul id="subnav" class="navtext">
+							<li class="ios-games separator"></li>
+							<li id="all-tutorials"><a class="verbose-link" href="http://www.raywenderlich.com/tutorials" sl-processed="1">Written Tutorials</a><a class="abridged-link" href="http://www.raywenderlich.com/tutorials" sl-processed="1">Written</a>
+								<ul class="expanded-subnav">
+									<li><h3>LANGUAGES</h3>
+									</li><li>
+										<ul class="site-subcategories">
+											<li class="last-item"><a href="http://www.raywenderlich.com/swift-language-tutorials" sl-processed="1">Swift</a></li>
+										</ul>
+									</li>
+									<li><h3>APP DEVELOPMENT</h3>
+									</li><li>
+										<ul class="site-subcategories">
+											<li><a href="http://www.raywenderlich.com/ios-tutorials" sl-processed="1">iOS</a></li>
+											<li><a href="http://www.raywenderlich.com/android-tutorials" sl-processed="1">Android</a></li>
+											<li class="last-item"><a href="http://www.raywenderlich.com/os-x-tutorials" sl-processed="1">OS X</a></li>
+										</ul>
+									</li>
+									<li><h3>GAME DEVELOPMENT</h3>
+									</li><li>
+										<ul class="site-subcategories">
+											<li><a href="http://www.raywenderlich.com/sprite-kit-tutorials" sl-processed="1">Sprite Kit</a></li>
+											<li><a href="http://www.raywenderlich.com/unity-tutorials" sl-processed="1">Unity</a></li>
+											<li class="last-item"><a href="http://www.raywenderlich.com/unreal-engine-tutorials" sl-processed="1">Unreal Engine</a></li>
+										</ul>
+									</li>
+									<li><h3>OTHER</h3>
+									</li><li>
+										<ul class="site-subcategories">
+											<li><a href="http://www.raywenderlich.com/articles" sl-processed="1">Articles</a></li>
+											<li class="last-item"><a href="http://www.raywenderlich.com/tutorial-archive" sl-processed="1">Archive</a></li>
+										</ul>
+									</li>
+								</ul>
+								<style>
+									#all-tutorials .expanded-subnav { display:none; }
+									#all-tutorials:hover .expanded-subnav, #all-tutorials:focus .expanded-subnav { display:block; }									
+									.expanded-subnav { position:absolute;background-color:#005C30;min-width: 170px;left: 1px;border-right: 1px solid #007B41;border-left: 1px solid #007B41;padding-bottom:13px; }
+									.expanded-subnav h3 { margin-left:9px;color:#002413;font-family: 'Open Sans',sans-serif;font-weight:700;font-size:12px; }
+									#subnav .expanded-subnav li { float:none; }
+									#subnav .expanded-subnav li .site-subcategories { margin-left:23px; }
+									#subnav  #all-tutorials .expanded-subnav a { background:none;padding:4px;width:110px;border-bottom:1px solid #00411d;font-size:16px;color:#A2C8B6;height:31px;padding-bottom:0;margin-top:2px; }
+									#subnav #all-tutorials .expanded-subnav a:hover { color:#fff; }
+									#subnav #all-tutorials .expanded-subnav .last-item  a { border-bottom:none; }
+									.page #mc_embed_signup .mc-field-group .asterisk {  position: relative;top: 5px;right:0; }
+									.page #mc_embed_signup .mc-field-group { padding-bottom:0; }
+									.page #mc_embed_signup .mc-field-group input { margin-top:-11px; }
+								</style>
+								<script>
+									jQuery(document).ready(function() {
+										jQuery("#all-tutorials .verbose-link, #all-tutorials .abridged-link").click(function() {
+											return false;
+										});
+										jQuery("#all-tutorials").bind("touchstart", function(event){
+        									event.stopPropagation(); 
+										});									
+										jQuery(document).bind('touchstart', function(e) {
+									        jQuery("#all-tutorials .expanded-subnav").fadeOut(300); 
+										});
+										jQuery("#all-tutorials .expanded-subnav a").click(function () {
+										      $("#all-tutorials .expanded-subnav").fadeOut(300); 
+										});
+									});
+
+
+								</script>							
+							</li>
+							<li class="separator"></li>
+							<li id="videos"><a class="verbose-link" href="http://www.raywenderlich.com/video-tutorials" sl-processed="1">Video Tutorials (Beta)</a><a href="http://www.raywenderlich.com/video-tutorials" class="abridged-link" sl-processed="1">Video</a></li>
+							<li class="separator"></li>
+							<li id="podcasts"><a href="http://www.raywenderlich.com/rwpodcast" sl-processed="1">Podcast</a></li>
+							<li class="separator"></li>
+							<li id="ios-gaming"><a href="http://www.raywenderlich.com/forums" sl-processed="1">Forums</a></li>
+							<li class="separator"></li>
+							<li id="art"><a href="http://www.gameartguppy.com/" target="_blank" sl-processed="1">Art</a></li>
+							<li class="separator"></li>
+							<li id="games"><a href="http://www.raywenderlich.com/store" sl-processed="1">Store</a></li>
+							<li class="separator"></li>
+							<li class="search">
+								<form action="http://www.raywenderlich.com/" class="searchform clearfix" method="get">
+									<label class="assistive-text" for="s">Search</label>
+									<input type="text" placeholder="Search for a tutorial" class="s field" name="s" autocomplete="off">
+									<input type="hidden" name="cof" value="FORID:10">
+								</form>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="subnav-band "></div>
+							<!-- .wrapper -->
+			</header>
+		</div>
+		
+		<div class="wrapper clearfix" id="print-header" style="display:none">
+			<img src="./Introducing React Native  Building Apps with JavaScript_files/print-header.png" width="1202" height="102">	
+		</div>
+		<div id="main" class="wrapper clearfix">
+			<div id="container">
+	<div id="primary" class="no-margin-left">
+		<div id="primary-container">
+			<div class="banner-ad" syle="overflow:hidden">
+				<!-- BuySellAds.com Ad Code -->
+				<div id="bsap_1272017" class="bsap bsap_1272017" data-serve="CV7IEKT">
+<style type="text/css">
+div.bsap_1272017{width:100%;display:block;}div.bsap_1272017 a{width:728px;}div.bsap_1272017 a img{padding:0;}div.bsap_1272017 a em{font-style:normal;}div.bsap_1272017 a{display:block;font-size:11px;color:#888;font-family:verdana,sans-serif;margin:0;text-align:center;text-decoration:none;overflow:hidden;float:left;margin-bottom:10px;}
+div.bsap_1272017 img{border:0;clear:right;}
+div.bsap_1272017 a.adhere{color:#666;font-weight:bold;font-size:12px;border:1px solid #ccc;background:#e7e7e7;text-align:center;}
+div.bsap_1272017 a.adhere:hover{border:1px solid #999;background:#ddd;color:#333;}div.bsap_1272017 a{line-height:100%;}div.bsap_1272017 a.adhere{width:728px;height:90px;line-height:720%;}html>body div.bsap_1272017 a.adhere{width:726px;height:88px;}div.bsap_1272017 img.s{height:0;width:0;}div.bsap_1272017{line-height:9px;}div.bsap_1272017 .bsap_adhere2,div.bsap_1272017 iframe{float:left;}div.bsap_1272017 .bsap_adhere2 a{height:90px;width:20px;background:url(http:\/\/s3.buysellads.com\/ac\/ah20x90_1.gif) no-repeat 0 0;text-indent:-9999px;}
+</style>
+<a href="http://srv.buysellads.com/ads/click/x/GTND423ICKSIV53JCA74YKQWCK7I52Q7CVYI5Z3JCE7IC27NCKBI52QKC6BDCK7UCWYDVK3EHJNCLSIZ" class="ad0 odd " title="PSPDFKit - The leading framework for displaying and annotating PDFs in your iOS apps." id="bsa_4291804" target="_blank" rel="nofollow" sl-processed="1">
+<img src="./Introducing React Native  Building Apps with JavaScript_files/205876-1390314136.png" width="728" height="90" alt=""></a>
+<script type="text/javascript" id="auto_1" class="ignoreme"> if (typeof(BSACallback) !== 'undefined') BSACallback(); </script></div>
+				<!-- End BuySellAds.com Ad Code -->
+			</div>
+			<div id="content">
+								<article id="post-99473" class="clearfix post-99473 post type-post status-publish format-standard has-post-thumbnail hentry category-ios category-tools-and-libraries tag-javascript tag-react tag-react-native tag-react-js tag-tutorial">
+					<header class="entry-header">
+						<h2 class="entry-title">
+            				<a href="./Introducing React Native  Building Apps with JavaScript_files/Introducing React Native  Building Apps with JavaScript.html" title="React Native Tutorial: Building Apps with JavaScript" sl-processed="1">React Native Tutorial: Building Apps with JavaScript</a>
+            			</h2>
+            			<div class="tutorial-meta" id="larger-screens">
+	            			<div class="author-meta">
+								<a href="http://www.raywenderlich.com/u/ColinEberhardt" sl-processed="1"><img src="./Introducing React Native  Building Apps with JavaScript_files/file.php" width="100" height="100" class="user-avatar"></a> <a href="http://www.raywenderlich.com/u/ColinEberhardt" class="author-name" sl-processed="1">										Colin Eberhardt</a> <span class="author-post-date">on March 26, 2015 </span>
+											            			</div>
+	            			<div class="social-links">
+			    				<ul>
+			    								    							<li class="twitter"><div id="tweetbutton99473m" class="tw_button" style="margin-bottom:10px;"><a href="http://twitter.com/share?url=http%3A%2F%2Fbit.ly%2F1FBATsT&via=rwenderlich&text=React%20Native%20Tutorial%3A%20Building%20Apps%20with%20JavaScript&related=rwenderlich&lang=en&count=horizontal&counturl=http%3A%2F%2Fwww.raywenderlich.com%2F99473%2Fintroducing-react-native-building-apps-javascript" class="twitter-share-button" style="width:55px;height:22px;background:transparent url(&#39;http://cdn3.raywenderlich.com/wp-content/plugins/wp-tweet-button/tweetn.png&#39;) no-repeat  0 0;text-align:left;text-indent:-9999px;display:block;" sl-processed="1">Tweet</a></div></li>
+			    																<li class="facebook"><div class="fb-like fb_iframe_widget" data-href="http://www.raywenderlich.com/99473/introducing-react-native-building-apps-javascript" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=&amp;container_width=0&amp;href=http%3A%2F%2Fwww.raywenderlich.com%2F99473%2Fintroducing-react-native-building-apps-javascript&amp;layout=button_count&amp;locale=en_US&amp;sdk=joey&amp;send=false&amp;show_faces=false&amp;width=450"><span style="vertical-align: top; width: 0px; height: 0px; overflow: hidden;"><iframe name="f32ed7bab" width="450px" height="1000px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:like Facebook Social Plugin" src="./Introducing React Native  Building Apps with JavaScript_files/saved_resource.html" style="border: none; visibility: visible; width: 0px; height: 0px;"></iframe></span></div></li>
+									<li class="facebook iframe-link"><iframe src="./Introducing React Native  Building Apps with JavaScript_files/saved_resource.html" allowtransparency="true" frameborder="0" scrolling="no" style="width: 74px; height: 20px;"></iframe></li>
+			    				</ul>
+			    			</div>
+	            		</div>
+					</header>
+					<div class="content-wrapper">
+						<div class="wwsgd" style=""><p style="border:thin dotted black; padding:3mm;margin-bottom:10px">If you're new here, you may want to subscribe to my <a href="http://www.raywenderlich.com/feed/" sl-processed="1">RSS feed</a> or follow me on <a href="http://twitter.com/rwenderlich" sl-processed="1">Twitter</a>. Thanks for visiting!</p></div><div id="attachment_99784" style="width: 260px" class="wp-caption alignright"><img src="./Introducing React Native  Building Apps with JavaScript_files/logo-250x250.png" alt="React Native" width="250" height="250" class="size-thumbnail wp-image-99784"><p class="wp-caption-text">React Native: Build native iOS applications with JavaScript.</p></div>
+<p>A few months ago <a href="https://code.facebook.com/videos/786462671439502/react-js-conf-2015-keynote-introducing-react-native-/" sl-processed="1">Facebook announced</a> <a href="http://facebook.github.io/react-native/" sl-processed="1">React Native</a>, a framework that lets you build native iOS applications with JavaScript – and the <a href="https://github.com/facebook/react-native" sl-processed="1">official repository</a> just came out of beta today!</p>
+<p>People have been using JavaScript and HTML5 to create iOS applications using the <a href="http://phonegap.com/" sl-processed="1">PhoneGap</a> wrapper for a number of years, so is React Native really such a big deal?</p>
+<p>React Native <em>is</em> a big deal, and people are getting very excited about it for two main reasons:</p>
+<ol>
+<li>With React Native your application logic is written and runs in JavaScript, whereas your application UI is fully native; therefore you have none of the compromises typically associated with HTML5 UI.</li>
+<li>React introduces a novel, radical and highly functional approach to constructing user interfaces. In brief, the application UI is simply expressed as a function of the current application state.</li>
+</ol>
+<p>The key point with React Native is that it aims to primarily bring the power of the <a href="http://facebook.github.io/react/" sl-processed="1">React</a> programming model to mobile app development. It is not aiming to be a cross platform, write-once run-anywhere, tool. It is aiming to be learn-once write-anywhere. An important distinction to make. This tutorial only covers iOS, but once you’ve learned the concepts here you could port that knowledge into creating an Android app very quickly.</p>
+<p>If you have only ever written applications in Objective-C or Swift, you might not be particularly excited about the prospect of using JavaScript instead. Although, as a Swift developer, the second point above should pique your interest!</p>
+<p>Through Swift, you’ve no doubt been learning new and more functional ways to encode algorithms, and techniques that encourage transformation and immutability. However, the way in which you construct your UI is very much the same as it was when developing with Objective-C: it’s still UIKit-based and imperative.</p>
+<p>Through intriguing concepts such as a virtual DOM and reconciliation, React brings functional programming directly to the UI layer. </p>
+<p>This tutorial takes you through the process of building an application for searching UK property listings:</p>
+<p><a href="http://cdn5.raywenderlich.com/wp-content/uploads/2015/03/PropertyFinder.png" sl-processed="1"><img src="./Introducing React Native  Building Apps with JavaScript_files/PropertyFinder-700x360.png" alt="PropertyFinder" width="700" height="360" class="alignnone size-large wp-image-99475"></a></p>
+<p>If you’ve never written any JavaScript before, fear not; this tutorial leads you through each and every step of the coding. React uses CSS properties for styling which are generally easy to read and understand, but if you need to, you can always refer to the excellent <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" sl-processed="1">Mozilla Developer Network reference</a>.</p>
+<p>Want to learn more? Read on!</p>
+<h2>Getting Started</h2>
+<p>The React Native framework is <a href="https://github.com/facebook/react-native" sl-processed="1">available via GitHub</a>. You can grab the framework by either cloning the repository using git, or you can choose download it as a zip file. If you are not interested in the source code, you can also use the command line interface (CLI) to create your React Native project, which is the approach this tutorial will take.</p>
+<p>React Native uses <a href="https://nodejs.org/" sl-processed="1">Node.js</a>, a JavaScript runtime, to build your JavaScript code. If you don’t already have Node.js installed, it’s time to get it!</p>
+<p>First <a href="http://brew.sh/" sl-processed="1">install Homebrew</a> using the instructions on the Homebrew website, then install Node.js by executing the following in a Terminal window:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p994731"><td class="code" id="p99473code1"><pre class="console" style="font-family:monospace;">brew install node</pre></td></tr></tbody></table></div>
+
+<p>Next, use <code>homebrew</code> to  install <a href="https://facebook.github.io/watchman/" sl-processed="1">watchman</a>, a file watcher from Facebook:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p994732"><td class="code" id="p99473code2"><pre class="console" style="font-family:monospace;">brew install watchman</pre></td></tr></tbody></table></div>
+
+<p>This is used by React Native to figure out when your code changes and rebuild accordingly. It’s like having Xcode do a build each time you save your file.</p>
+<p>Next use npm to install the React Native CLI tool:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p994733"><td class="code" id="p99473code3"><pre class="console" style="font-family:monospace;">npm install -g react-native-cli</pre></td></tr></tbody></table></div>
+
+<p>This uses the Node Package Manager to fetch the CLI tool and install it globally; npm is similar in function to CocoaPods or Carthage. </p>
+<p>Navigate to the folder where you would like to develop your React Native application, and use the CLI tool to construct the project:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p994734"><td class="code" id="p99473code4"><pre class="console" style="font-family:monospace;">react-native init PropertyFinder</pre></td></tr></tbody></table></div>
+
+<p>This creates a starter-project containing everything you need to build and run a React Native application.</p>
+<p>If you look at the created folders and files you will find a node_modules folder, which contains the React Native framework. You will also find an <em>index.ios.js</em> file, which is the skeletal app created by the CLI tool. Finally, there is an Xcode project file and an iOS folder, containing the small amount of code required to ‘bootstrap’ your application.</p>
+<p>Open the Xcode project file then build and run. The simulator will start and display the following greeting:</p>
+<p><a href="http://cdn3.raywenderlich.com/wp-content/uploads/2015/03/ReactNative-Starter.png" sl-processed="1"><img src="./Introducing React Native  Building Apps with JavaScript_files/ReactNative-Starter-281x500.png" alt="ReactNative-Starter" width="281" height="500" class="aligncenter size-medium wp-image-100990 bordered"></a></p>
+<p>You might also have noticed that a terminal window has popped up, displaying the following:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p994735"><td class="code" id="p99473code5"><pre class="console" style="font-family:monospace;"> ===============================================================
+ |  Running packager on port 8081.       
+ |  Keep this packager running while developing on any JS         
+ |  projects. Feel free to close this tab and run your own      
+ |  packager instance if you prefer.                              
+ |                                                              
+ |     https://github.com/facebook/react-native                 
+ |                                                              
+ ===============================================================
+&nbsp;
+Looking for JS files in
+   /Users/colineberhardt/Temp/TestProject
+&nbsp;
+React packager ready.</pre></td></tr></tbody></table></div>
+
+<p>This is the React Native packager, running under node. You’ll find out what it does shortly. </p>
+<p>Don’t close the Terminal window; just keep it running in the background. If you do close it by mistake, simply stop and re-run the project via Xcode.</p>
+<div class="note"><em>Note</em>: One final thing before you get too deep in the code — you’re going to be writing a lot of JavaScript code in this tutorial, and Xcode is certainly not the best tool for this job! I use <a href="http://www.sublimetext.com/" sl-processed="1">Sublime Text</a>, which is a cheap and versatile editor, but <a href="https://atom.io/" sl-processed="1">atom</a>, <a href="http://brackets.io/" sl-processed="1">brackets</a> or any other lightweight editor will do the job.</div>
+<h2>Hello React Native</h2>
+<p>Before getting started on the property search application, you’re going to create a very simple Hello World app. You’ll be introduced to the various components and concepts as you go along.</p>
+<p>Open <em>index.ios.js</em> in your text editor of choice and delete the current contents since you’re going to build your own app from scratch. Add the following to the start of the file:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p994736"><td class="code" id="p99473code6"><pre class="javascript" style="font-family:monospace;"><span style="color: #3366CC;">'use strict'</span><span style="color: #339933;">;</span></pre></td></tr></tbody></table></div>
+
+<p>This enables <em>Strict Mode</em>, which adds improved error handling and disables some less-than-ideal JavaScript language features. In simple terms, it makes JavaScript better!</p>
+<div class="note"><em>Note:</em> For a more detailed overview of Strict Mode, I’d encourage you to read <a href="http://ejohn.org/blog/ecmascript-5-strict-mode-json-and-more/" sl-processed="1">Jon Resig’s article</a> “ECMAScript 5 Strict Mode, JSON, and More”.</div>
+<p>Next, add the following line:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p994737"><td class="code" id="p99473code7"><pre class="javascript" style="font-family:monospace;"><span style="color: #003366; font-weight: bold;">var</span> React <span style="color: #339933;">=</span> require<span style="color: #009900;">(</span><span style="color: #3366CC;">'react-native'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></pre></td></tr></tbody></table></div>
+
+<p>This loads the <code>react-native</code> module and assigns it to <code>React</code>. React Native uses the same module loading technology as Node.js with the <code>require</code> function, which is roughly equivalent to linking and importing libraries in Swift.</p>
+<div class="note"><em>Note:</em> For more information about JavaScript modules I’d recommend reading <a href="http://addyosmani.com/writing-modular-js/" sl-processed="1">this article by Addy Osmani</a> on writing modular JavaScript.
+</div>
+<p>Just below the <code>require</code> statement, add the following:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p994738"><td class="code" id="p99473code8"><pre class="javascript" style="font-family:monospace;"><span style="color: #003366; font-weight: bold;">var</span> styles <span style="color: #339933;">=</span> React.<span style="color: #660066;">StyleSheet</span>.<span style="color: #660066;">create</span><span style="color: #009900;">(</span><span style="color: #009900;">{</span>
+  text<span style="color: #339933;">:</span> <span style="color: #009900;">{</span>
+    color<span style="color: #339933;">:</span> <span style="color: #3366CC;">'black'</span><span style="color: #339933;">,</span>
+    backgroundColor<span style="color: #339933;">:</span> <span style="color: #3366CC;">'white'</span><span style="color: #339933;">,</span>
+    fontSize<span style="color: #339933;">:</span> <span style="color: #CC0000;">30</span><span style="color: #339933;">,</span>
+    margin<span style="color: #339933;">:</span> <span style="color: #CC0000;">80</span>
+  <span style="color: #009900;">}</span>
+<span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></pre></td></tr></tbody></table></div>
+
+<p>This defines a single style that you will shortly apply to your “Hello World” text. If you’ve done any web development before, you’ll probably recognize those property names; React Native uses <a href="http://www.w3schools.com/css/" sl-processed="1">Cascading Style Sheets (CSS)</a> to style the application UI. </p>
+<p>Now for the app itself! Still working in the same file, add the following  code just beneath the style declaration above:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p994739"><td class="code" id="p99473code9"><pre class="javascript" style="font-family:monospace;"><span style="color: #003366; font-weight: bold;">class</span> PropertyFinderApp <span style="color: #003366; font-weight: bold;">extends</span> React.<span style="color: #660066;">Component</span> <span style="color: #009900;">{</span>
+  render<span style="color: #009900;">(</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span>
+    <span style="color: #000066; font-weight: bold;">return</span> React.<span style="color: #660066;">createElement</span><span style="color: #009900;">(</span>React.<span style="color: #660066;">Text</span><span style="color: #339933;">,</span> <span style="color: #009900;">{</span>style<span style="color: #339933;">:</span> styles.<span style="color: #660066;">text</span><span style="color: #009900;">}</span><span style="color: #339933;">,</span> <span style="color: #3366CC;">"Hello World!"</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+  <span style="color: #009900;">}</span>
+<span style="color: #009900;">}</span></pre></td></tr></tbody></table></div>
+
+<p>Yes, that’s a JavaScript class!</p>
+<p>Classes were introduced in ECMAScript 6 (ES6). Although JavaScript is constantly evolving, web developers are restricted in what they can use due to the need to maintain compatibility with older browsers. React Native runs within JavaScriptCore; as a result, you can use modern language features without worrying about supporting legacy browsers.</p>
+<div class="note">
+<p><em>Note:</em> If you are a web developer, I’d thoroughly encourage you to use modern JavaScript, and then convert to older JavaScript using tools such as <a href="https://babeljs.io/" sl-processed="1">Babel</a> to maintain support for older and incompatible browsers.</p></div>
+<p><code>PropertyFinderApp</code> extends <code>React.Component</code>, the basic building block of the React UI. Components contain immutable properties, mutable state variables and expose a method for rendering. Your current application is quite simple and only requires a render method.</p>
+<p>React Native components are not UIKit classes; instead they are a lightweight equivalent. The framework takes care of transforming the tree of React components into the required native UI.</p>
+<p>Finally, add the following to the end of the file:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p9947310"><td class="code" id="p99473code10"><pre class="javascript" style="font-family:monospace;">React.<span style="color: #660066;">AppRegistry</span>.<span style="color: #660066;">registerComponent</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'PropertyFinder'</span><span style="color: #339933;">,</span> <span style="color: #003366; font-weight: bold;">function</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span> <span style="color: #000066; font-weight: bold;">return</span> PropertyFinderApp <span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></pre></td></tr></tbody></table></div>
+
+<p><code>AppRegistry</code> defines the entry point to the application and provides the root component.</p>
+<p>Save your changes to <em>index.ios.js</em> and then return to Xcode. Ensure the <em>PropertyFinder</em> scheme is selected with one of the iPhone simulators, and then build and run your project. After a few seconds you’ll see your “Hello World” app in action:</p>
+<p><a href="http://cdn2.raywenderlich.com/wp-content/uploads/2015/03/react-helloworld.png" sl-processed="1"><img src="./Introducing React Native  Building Apps with JavaScript_files/react-helloworld-281x500.png" alt="react-helloworld" width="281" height="500" class="aligncenter bordered size-large wp-image-99639"></a></p>
+<p>That’s a JavaScript application running in the simulator, rendering a native UI, without a browser in sight!</p>
+<p>Still don’t trust me? :] Verify it for yourself: within Xcode, select <em>Debug\View Debugging\Capture View Hierarchy</em> and take a look at the native view hierarchy. You will see no <code>UIWebView</code> instances anywhere! Just a proper, real, view! Neat :]!</p>
+<p><a href="http://cdn4.raywenderlich.com/wp-content/uploads/2015/03/ViewDebugging.png" sl-processed="1"><img src="./Introducing React Native  Building Apps with JavaScript_files/ViewDebugging-480x227.png" alt="A native view hierarchy" width="480" height="227" class="aligncenter size-medium wp-image-100990 bordered"></a></p>
+<p>Curious as to how it all works? In Xcode open <em>AppDelegate.m</em> and locate <code>application:didFinishLaunchingWithOptions:</code>. This method constructs a <code>RCTRootView</code>, which loads the JavaScript application and renders the resultant view.</p>
+<p>When the application starts, the <code>RCTRootView</code> loads the application from the following URL:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p9947311"><td class="code" id="p99473code11"><pre class="console" style="font-family:monospace;">http://localhost:8081/index.ios.bundle</pre></td></tr></tbody></table></div>
+
+<p>Recall the Terminal window that was opened when you ran this application; this starts a packager and server that handles the above request.</p>
+<p>Open this URL in Safari; you’ll see the JavaScript code for your app. You should be able to find your “Hello World” code embedded among the React Native framework.</p>
+<p>When your app starts, this code is loaded and executed by the JavaScriptCore framework. In the case of your application, it loads the  <code>PropertyFinderApp</code> component, then constructs the native UIKit view. You’ll learn a bit more about this later in the tutorial.</p>
+<h2>Hello World JSX</h2>
+<p>Your current application uses <code>React.createElement</code> to construct the simple UI for your application, which React turns into the native equivalent. While your JavaScript code is perfectly readable in its present form, a more complex UI with nested elements would rapidly become quite a mess.</p>
+<p>Make sure the app is still running, then return to your text editor to edit <em>index.ios.js</em>. Modify the <code>return</code> statement of your component’s render method as follows:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p9947312"><td class="code" id="p99473code12"><pre class="javascript" style="font-family:monospace;"><span style="color: #000066; font-weight: bold;">return</span> <span style="color: #339933;">&lt;</span>React.<span style="color: #660066;">Text</span> style<span style="color: #339933;">=</span><span style="color: #009900;">{</span>styles.<span style="color: #660066;">text</span><span style="color: #009900;">}</span><span style="color: #339933;">&gt;</span>Hello World <span style="color: #009900;">(</span>Again<span style="color: #009900;">)</span><span style="color: #339933;">&lt;/</span>React.<span style="color: #660066;">Text</span><span style="color: #339933;">&gt;;</span></pre></td></tr></tbody></table></div>
+
+<p>This is <a href="http://facebook.github.io/react/docs/jsx-in-depth.html" sl-processed="1">JSX</a>, or JavaScript syntax extension, which mixes HTML-like syntax directly in your JavaScript code; if you’re already a web developer, this should feel rather familiar. You’ll use JSX throughout this article. </p>
+<p>Save your changes to <em>index.ios.js</em> and return to the simulator. Press <em>Cmd+R</em>, and you’ll see your application refresh to display the updated message “Hello World (Again)”.</p>
+<p>Re-running a React Native application is really as simple as refreshing a web browser! :]</p>
+<p>Since you’ll be working with the same set of JavaScript, you can leave the app running and simply refresh the app in this fashion after modifying and saving <em>index.ios.js</em>.</p>
+<div class="note">
+<p><em>Note:</em> If you are feeling inquisitive, take a look at your ‘bundle’ in the browser to see what the JSX is transformed into.</p></div>
+<p>Okay, enough of this “Hello World” fun; it’s time to build the real application!</p>
+<h2>Adding Navigation</h2>
+<p>The Property Finder app uses the standard stack-based navigation experience provided by UIKit’s navigation controller. It’s time to add this behavior.</p>
+<p>Within <em>index.ios.js</em>, rename the <code>PropertyFinderApp</code> class to <code>HelloWorld</code>:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p9947313"><td class="code" id="p99473code13"><pre class="javascript" style="font-family:monospace;"><span style="color: #003366; font-weight: bold;">class</span> HelloWorld <span style="color: #003366; font-weight: bold;">extends</span> React.<span style="color: #660066;">Component</span> <span style="color: #009900;">{</span></pre></td></tr></tbody></table></div>
+
+<p>You’ll keep the “Hello World” text display around a little longer, but it won’t be the root component of your app anymore.</p>
+<p>Next add the following class below the <code>HelloWorld</code> component:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p9947314"><td class="code" id="p99473code14"><pre class="javascript" style="font-family:monospace;"><span style="color: #003366; font-weight: bold;">class</span> PropertyFinderApp <span style="color: #003366; font-weight: bold;">extends</span> React.<span style="color: #660066;">Component</span> <span style="color: #009900;">{</span>
+  render<span style="color: #009900;">(</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span>
+    <span style="color: #000066; font-weight: bold;">return</span> <span style="color: #009900;">(</span>
+      <span style="color: #339933;">&lt;</span>React.<span style="color: #660066;">NavigatorIOS</span>
+        style<span style="color: #339933;">=</span><span style="color: #009900;">{</span>styles.<span style="color: #660066;">container</span><span style="color: #009900;">}</span>
+        initialRoute<span style="color: #339933;">=</span><span style="color: #009900;">{</span><span style="color: #009900;">{</span>
+          title<span style="color: #339933;">:</span> <span style="color: #3366CC;">'Property Finder'</span><span style="color: #339933;">,</span>
+          component<span style="color: #339933;">:</span> HelloWorld<span style="color: #339933;">,</span>
+        <span style="color: #009900;">}</span><span style="color: #009900;">}</span><span style="color: #339933;">/&gt;</span>
+    <span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+  <span style="color: #009900;">}</span>
+<span style="color: #009900;">}</span></pre></td></tr></tbody></table></div>
+
+<p>This constructs a navigation controller, applies a style and sets the initial route to the <code>HelloWorld</code> component. In web development, <em>routing</em> is a technique for defining the navigation structure of an application, where pages — or <i>routes</i> — are mapped to URLs.</p>
+<p>Within the same file, update the styles declaration to include the container style as shown below:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p9947315"><td class="code" id="p99473code15"><pre class="javascript" style="font-family:monospace;"><span style="color: #003366; font-weight: bold;">var</span> styles <span style="color: #339933;">=</span> React.<span style="color: #660066;">StyleSheet</span>.<span style="color: #660066;">create</span><span style="color: #009900;">(</span><span style="color: #009900;">{</span>
+  text<span style="color: #339933;">:</span> <span style="color: #009900;">{</span>
+    color<span style="color: #339933;">:</span> <span style="color: #3366CC;">'black'</span><span style="color: #339933;">,</span>
+    backgroundColor<span style="color: #339933;">:</span> <span style="color: #3366CC;">'white'</span><span style="color: #339933;">,</span>
+    fontSize<span style="color: #339933;">:</span> <span style="color: #CC0000;">30</span><span style="color: #339933;">,</span>
+    margin<span style="color: #339933;">:</span> <span style="color: #CC0000;">80</span>
+  <span style="color: #009900;">}</span><span style="color: #339933;">,</span>
+  container<span style="color: #339933;">:</span> <span style="color: #009900;">{</span>
+    flex<span style="color: #339933;">:</span> <span style="color: #CC0000;">1</span>
+  <span style="color: #009900;">}</span>
+<span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></pre></td></tr></tbody></table></div>
+
+<p>You’ll find out what <code>flex: 1</code> means a bit later in this tutorial.</p>
+<p>Head back to the simulator and press <em>Cmd+R</em> to see your new UI in action:</p>
+<p><a href="http://cdn4.raywenderlich.com/wp-content/uploads/2015/03/react-helloworldagain.png" sl-processed="1"><img src="./Introducing React Native  Building Apps with JavaScript_files/react-helloworldagain-281x500.png" alt="react-helloworldagain" width="281" height="500" class="aligncenter bordered size-large wp-image-99640"></a></p>
+<p>There’s the navigation controller with its root view, which is currently the “Hello World” text. Excellent — you now have the basic navigation structure for your application in place. It’s time to add the ‘real’ UI!</p>
+<h2>Building the Search Page</h2>
+<p>Add a new file to the project named <em>SearchPage.js</em> and place it in the same folder as <em>index.ios.js</em>. Add the following code to this file:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p9947316"><td class="code" id="p99473code16"><pre class="javascript" style="font-family:monospace;"><span style="color: #3366CC;">'use strict'</span><span style="color: #339933;">;</span>
+&nbsp;
+<span style="color: #003366; font-weight: bold;">var</span> React <span style="color: #339933;">=</span> require<span style="color: #009900;">(</span><span style="color: #3366CC;">'react-native'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+<span style="color: #003366; font-weight: bold;">var</span> <span style="color: #009900;">{</span>
+  StyleSheet<span style="color: #339933;">,</span>
+  Text<span style="color: #339933;">,</span>
+  TextInput<span style="color: #339933;">,</span>
+  View<span style="color: #339933;">,</span>
+  TouchableHighlight<span style="color: #339933;">,</span>
+  ActivityIndicatorIOS<span style="color: #339933;">,</span>
+  Image<span style="color: #339933;">,</span>
+  Component
+<span style="color: #009900;">}</span> <span style="color: #339933;">=</span> React<span style="color: #339933;">;</span></pre></td></tr></tbody></table></div>
+
+<p>You’ve already seen the strict mode and the react-native import before, but the assignment statement that follows it is something new.</p>
+<p>This is a <em>destructuring assignment</em>, which lets you extract multiple object properties and assign them to variables using a single statement. As a result, the rest of your code can drop the <code>React</code> prefix; for example, you can refer directly to <code>StyleSheet</code> rather than <code>React.StyleSheet</code>. Destructuring is also useful for manipulating arrays and is <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment" sl-processed="1">well worth learning more about</a>.</p>
+<p>Still working in the same file, <em>SearchPage.js</em>, add the following style:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p9947317"><td class="code" id="p99473code17"><pre class="javascript" style="font-family:monospace;"><span style="color: #003366; font-weight: bold;">var</span> styles <span style="color: #339933;">=</span> StyleSheet.<span style="color: #660066;">create</span><span style="color: #009900;">(</span><span style="color: #009900;">{</span>
+  description<span style="color: #339933;">:</span> <span style="color: #009900;">{</span>
+    marginBottom<span style="color: #339933;">:</span> <span style="color: #CC0000;">20</span><span style="color: #339933;">,</span>
+    fontSize<span style="color: #339933;">:</span> <span style="color: #CC0000;">18</span><span style="color: #339933;">,</span>
+    textAlign<span style="color: #339933;">:</span> <span style="color: #3366CC;">'center'</span><span style="color: #339933;">,</span>
+    color<span style="color: #339933;">:</span> <span style="color: #3366CC;">'#656565'</span>
+  <span style="color: #009900;">}</span><span style="color: #339933;">,</span>
+  container<span style="color: #339933;">:</span> <span style="color: #009900;">{</span>
+    padding<span style="color: #339933;">:</span> <span style="color: #CC0000;">30</span><span style="color: #339933;">,</span>
+    marginTop<span style="color: #339933;">:</span> <span style="color: #CC0000;">65</span><span style="color: #339933;">,</span>
+    alignItems<span style="color: #339933;">:</span> <span style="color: #3366CC;">'center'</span>
+  <span style="color: #009900;">}</span>
+<span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></pre></td></tr></tbody></table></div>
+
+<p>Again, these are standard CSS properties. Setting up styles like this is less visual than using Interface Builder, but it’s better than setting view properties one by one in your <code>viewDidLoad()</code> methods! :]</p>
+<p>Add the component itself just below the styles you added above:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p9947318"><td class="code" id="p99473code18"><pre class="javascript" style="font-family:monospace;"><span style="color: #003366; font-weight: bold;">class</span> SearchPage <span style="color: #003366; font-weight: bold;">extends</span> Component <span style="color: #009900;">{</span>
+  render<span style="color: #009900;">(</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span>
+    <span style="color: #000066; font-weight: bold;">return</span> <span style="color: #009900;">(</span>
+      <span style="color: #339933;">&lt;</span>View style<span style="color: #339933;">=</span><span style="color: #009900;">{</span>styles.<span style="color: #660066;">container</span><span style="color: #009900;">}</span><span style="color: #339933;">&gt;</span>
+        <span style="color: #339933;">&lt;</span>Text style<span style="color: #339933;">=</span><span style="color: #009900;">{</span>styles.<span style="color: #660066;">description</span><span style="color: #009900;">}</span><span style="color: #339933;">&gt;</span>
+          Search <span style="color: #000066; font-weight: bold;">for</span> houses to buy<span style="color: #339933;">!</span>
+        <span style="color: #339933;">&lt;/</span>Text<span style="color: #339933;">&gt;</span>
+        <span style="color: #339933;">&lt;</span>Text style<span style="color: #339933;">=</span><span style="color: #009900;">{</span>styles.<span style="color: #660066;">description</span><span style="color: #009900;">}</span><span style="color: #339933;">&gt;</span>
+          Search by place<span style="color: #339933;">-</span><span style="color: #000066;">name</span><span style="color: #339933;">,</span> postcode or search near your location.
+        <span style="color: #339933;">&lt;/</span>Text<span style="color: #339933;">&gt;</span>
+      <span style="color: #339933;">&lt;/</span>View<span style="color: #339933;">&gt;</span>
+    <span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+  <span style="color: #009900;">}</span>
+<span style="color: #009900;">}</span></pre></td></tr></tbody></table></div>
+
+<p><code>render</code> is a great demonstration of JSX and the structure it provides. Along with the style, you can very easily visualize the UI constructed by this component: a container with two text labels.</p>
+<p>Finally, add the following to the end of the file:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p9947319"><td class="code" id="p99473code19"><pre class="javascript" style="font-family:monospace;">module.<span style="color: #660066;">exports</span> <span style="color: #339933;">=</span> SearchPage<span style="color: #339933;">;</span></pre></td></tr></tbody></table></div>
+
+<p>This exports the <code>SearchPage</code> class, which permits its use in other files.</p>
+<p>The next step is to update the application routing in order to make this the initial route. </p>
+<p>Open <em>index.ios.js</em> and add the following just after the current <code>require</code> import near the top of the file:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p9947320"><td class="code" id="p99473code20"><pre class="javascript" style="font-family:monospace;"><span style="color: #003366; font-weight: bold;">var</span> SearchPage <span style="color: #339933;">=</span> require<span style="color: #009900;">(</span><span style="color: #3366CC;">'./SearchPage'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></pre></td></tr></tbody></table></div>
+
+<p>Within the <code>render</code> function of the <code>PropertyFinderApp</code> class, update <code>initialRoute</code> to reference the newly added page as shown below:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p9947321"><td class="code" id="p99473code21"><pre class="javascript" style="font-family:monospace;">component<span style="color: #339933;">:</span> SearchPage</pre></td></tr></tbody></table></div>
+
+<p>At this point you can remove the <code>HelloWorld</code> class and its associated style, if you like. You won’t be needing that code any longer.</p>
+<p>Return to the simulator, hit Cmd+R and check out the new UI:</p>
+<p><a href="http://cdn1.raywenderlich.com/wp-content/uploads/2015/03/react-searchstarter.png" sl-processed="1"><img src="./Introducing React Native  Building Apps with JavaScript_files/react-searchstarter-281x500.png" alt="react-searchstarter" width="281" height="500" class="aligncenter bordered size-large wp-image-99641"></a></p>
+<p>This is using the new component, <em>SearchPage</em>, which you added.</p>
+<h2>Styling with Flexbox</h2>
+<p>So far, you’ve seen basic CSS properties that deal with margins, paddings and color. However, you might not be familiar with <em>flexbox</em>, a more recent addition to the CSS specification that is very useful for application UI layout.</p>
+<p>React Native uses the <a href="https://github.com/facebook/css-layout" sl-processed="1">css-layout</a> library, a JavaScript implementation of the flexbox standard which is transpiled into C (for iOS) and Java (for Android).</p>
+<p>It’s great that Facebook has created this as a separate project that targets multiple languages, since this allows for novel applications, such as applying <a href="http://blog.scottlogic.com/2015/02/02/svg-layout-flexbox.html" sl-processed="1">flexbox layout to SVG</a> (yes, that was written by me … and no, I don’t sleep much!).</p>
+<p>In your app, the container has the default flow direction of <code>column</code>, which means its children are arranged in a vertical stack, like so:</p>
+<p><a href="./Introducing React Native  Building Apps with JavaScript_files/FlexStack.png" sl-processed="1"><img src="./Introducing React Native  Building Apps with JavaScript_files/FlexStack.png" alt="FlexStack" width="634" height="471" class="aligncenter bordered size-full wp-image-99489"></a></p>
+<p>This is termed the <em>main axis</em>, and can run either vertically or horizontally.</p>
+<p>The vertical position of each child is determined from a combination of its margin, height and padding. The container also sets the <code>alignItems</code> property to <code>center</code>, which determines the placement of children on the <em>cross axis</em>. In this case, it results in center-aligned text.</p>
+<p>It’s time to add the input field and buttons. Open <em>SearchPage.js</em> and insert the following just after the closing tag of the second <code>Text</code> element:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p9947322"><td class="code" id="p99473code22"><pre class="javascript" style="font-family:monospace;"><span style="color: #339933;">&lt;</span>View style<span style="color: #339933;">=</span><span style="color: #009900;">{</span>styles.<span style="color: #660066;">flowRight</span><span style="color: #009900;">}</span><span style="color: #339933;">&gt;</span>
+  <span style="color: #339933;">&lt;</span>TextInput
+    style<span style="color: #339933;">=</span><span style="color: #009900;">{</span>styles.<span style="color: #660066;">searchInput</span><span style="color: #009900;">}</span>
+    placeholder<span style="color: #339933;">=</span><span style="color: #3366CC;">'Search via name or postcode'</span><span style="color: #339933;">/&gt;</span>
+  <span style="color: #339933;">&lt;</span>TouchableHighlight style<span style="color: #339933;">=</span><span style="color: #009900;">{</span>styles.<span style="color: #660066;">button</span><span style="color: #009900;">}</span>
+      underlayColor<span style="color: #339933;">=</span><span style="color: #3366CC;">'#99d9f4'</span><span style="color: #339933;">&gt;</span>
+    <span style="color: #339933;">&lt;</span>Text style<span style="color: #339933;">=</span><span style="color: #009900;">{</span>styles.<span style="color: #660066;">buttonText</span><span style="color: #009900;">}</span><span style="color: #339933;">&gt;</span>Go<span style="color: #339933;">&lt;/</span>Text<span style="color: #339933;">&gt;</span>
+  <span style="color: #339933;">&lt;/</span>TouchableHighlight<span style="color: #339933;">&gt;</span>
+<span style="color: #339933;">&lt;/</span>View<span style="color: #339933;">&gt;</span>
+<span style="color: #339933;">&lt;</span>TouchableHighlight style<span style="color: #339933;">=</span><span style="color: #009900;">{</span>styles.<span style="color: #660066;">button</span><span style="color: #009900;">}</span>
+    underlayColor<span style="color: #339933;">=</span><span style="color: #3366CC;">'#99d9f4'</span><span style="color: #339933;">&gt;</span>
+  <span style="color: #339933;">&lt;</span>Text style<span style="color: #339933;">=</span><span style="color: #009900;">{</span>styles.<span style="color: #660066;">buttonText</span><span style="color: #009900;">}</span><span style="color: #339933;">&gt;</span>Location<span style="color: #339933;">&lt;/</span>Text<span style="color: #339933;">&gt;</span>
+<span style="color: #339933;">&lt;/</span>TouchableHighlight<span style="color: #339933;">&gt;</span></pre></td></tr></tbody></table></div>
+
+<p>You’ve added two top-level views here: one to hold a text input and a button, and one with only a button. You’ll read about how these elements are styled in a little bit.</p>
+<p>Next, add the accompanying styles to your <code>styles</code> definition:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p9947323"><td class="code" id="p99473code23"><pre class="javascript" style="font-family:monospace;">flowRight<span style="color: #339933;">:</span> <span style="color: #009900;">{</span>
+  flexDirection<span style="color: #339933;">:</span> <span style="color: #3366CC;">'row'</span><span style="color: #339933;">,</span>
+  alignItems<span style="color: #339933;">:</span> <span style="color: #3366CC;">'center'</span><span style="color: #339933;">,</span>
+  alignSelf<span style="color: #339933;">:</span> <span style="color: #3366CC;">'stretch'</span>
+<span style="color: #009900;">}</span><span style="color: #339933;">,</span>
+buttonText<span style="color: #339933;">:</span> <span style="color: #009900;">{</span>
+  fontSize<span style="color: #339933;">:</span> <span style="color: #CC0000;">18</span><span style="color: #339933;">,</span>
+  color<span style="color: #339933;">:</span> <span style="color: #3366CC;">'white'</span><span style="color: #339933;">,</span>
+  alignSelf<span style="color: #339933;">:</span> <span style="color: #3366CC;">'center'</span>
+<span style="color: #009900;">}</span><span style="color: #339933;">,</span>
+button<span style="color: #339933;">:</span> <span style="color: #009900;">{</span>
+  height<span style="color: #339933;">:</span> <span style="color: #CC0000;">36</span><span style="color: #339933;">,</span>
+  flex<span style="color: #339933;">:</span> <span style="color: #CC0000;">1</span><span style="color: #339933;">,</span>
+  flexDirection<span style="color: #339933;">:</span> <span style="color: #3366CC;">'row'</span><span style="color: #339933;">,</span>
+  backgroundColor<span style="color: #339933;">:</span> <span style="color: #3366CC;">'#48BBEC'</span><span style="color: #339933;">,</span>
+  borderColor<span style="color: #339933;">:</span> <span style="color: #3366CC;">'#48BBEC'</span><span style="color: #339933;">,</span>
+  borderWidth<span style="color: #339933;">:</span> <span style="color: #CC0000;">1</span><span style="color: #339933;">,</span>
+  borderRadius<span style="color: #339933;">:</span> <span style="color: #CC0000;">8</span><span style="color: #339933;">,</span>
+  marginBottom<span style="color: #339933;">:</span> <span style="color: #CC0000;">10</span><span style="color: #339933;">,</span>
+  alignSelf<span style="color: #339933;">:</span> <span style="color: #3366CC;">'stretch'</span><span style="color: #339933;">,</span>
+  justifyContent<span style="color: #339933;">:</span> <span style="color: #3366CC;">'center'</span>
+<span style="color: #009900;">}</span><span style="color: #339933;">,</span>
+searchInput<span style="color: #339933;">:</span> <span style="color: #009900;">{</span>
+  height<span style="color: #339933;">:</span> <span style="color: #CC0000;">36</span><span style="color: #339933;">,</span>
+  padding<span style="color: #339933;">:</span> <span style="color: #CC0000;">4</span><span style="color: #339933;">,</span>
+  marginRight<span style="color: #339933;">:</span> <span style="color: #CC0000;">5</span><span style="color: #339933;">,</span>
+  flex<span style="color: #339933;">:</span> <span style="color: #CC0000;">4</span><span style="color: #339933;">,</span>
+  fontSize<span style="color: #339933;">:</span> <span style="color: #CC0000;">18</span><span style="color: #339933;">,</span>
+  borderWidth<span style="color: #339933;">:</span> <span style="color: #CC0000;">1</span><span style="color: #339933;">,</span>
+  borderColor<span style="color: #339933;">:</span> <span style="color: #3366CC;">'#48BBEC'</span><span style="color: #339933;">,</span>
+  borderRadius<span style="color: #339933;">:</span> <span style="color: #CC0000;">8</span><span style="color: #339933;">,</span>
+  color<span style="color: #339933;">:</span> <span style="color: #3366CC;">'#48BBEC'</span>
+<span style="color: #009900;">}</span></pre></td></tr></tbody></table></div>
+
+<p>Take care with the formatting; each style property should be separated by a comma. That means you’ll need to add a trailing comma after the <code>container</code> selector.</p>
+<p>These styles are used by the text input and buttons which you just added.</p>
+<p>Return to the simulator and press <em>Cmd+R</em> to see the updated UI:</p>
+<p><a href="http://cdn3.raywenderlich.com/wp-content/uploads/2015/03/react-searchpageinput.png" sl-processed="1"><img src="./Introducing React Native  Building Apps with JavaScript_files/react-searchpageinput-281x500.png" alt="react-searchpageinput" width="281" height="500" class="aligncenter bordered size-large wp-image-99721"></a></p>
+<p>The text field and ‘Go’ button are on the same row, so you’ve wrapped them in a container that has a <code>flexDirection: 'row'</code> style. Rather than explicitly specifying the widths of the input field and button, you give each a <code>flex</code> value instead. The text field is styled with <code>flex: 4</code>, while the button has <code>flex: 1</code>; this results in their widths having a 4:1 ratio.</p>
+<p>You might have noticed that your buttons…aren’t actually buttons! :] With UIKit, buttons are little more than labels that can be tapped, and as a result the React Native team decided it was easier to construct buttons directly in JavaScript. The buttons in your app use <code>TouchableHighlight</code>, a React Native component that becomes transparent and  reveals the underlay colour when tapped.</p>
+<p>The final step to complete the search screen of the application is to add the house graphic. The images are <a href="http://cdn2.raywenderlich.com/wp-content/uploads/2015/03/ReactNative-HouseImage.zip" sl-processed="1">available to download as a zip file</a>. Download and unzip the file.</p>
+<p>Within Xcode open the <em>Images.xcassets</em> file and tap the plus button to add a new image set. Next drag the required images into the correct ‘slots':</p>
+<p><a href="http://cdn4.raywenderlich.com/wp-content/uploads/2015/03/AddingHouseImage.png" sl-processed="1"><img src="./Introducing React Native  Building Apps with JavaScript_files/AddingHouseImage-700x459.png" alt="AddingHouseImage" width="700" height="459" class="alignnone size-large wp-image-101587"></a></p>
+<p>You’ll have to stop the running application and restart so that these images become available to your React Native app.</p>
+<p>Add the following beneath the <code>TouchableHighlight</code> component for the <code>location</code> button:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p9947324"><td class="code" id="p99473code24"><pre class="javascript" style="font-family:monospace;"><span style="color: #339933;">&lt;</span>Image source<span style="color: #339933;">=</span><span style="color: #009900;">{</span>require<span style="color: #009900;">(</span><span style="color: #3366CC;">'image!house'</span><span style="color: #009900;">)</span><span style="color: #009900;">}</span> style<span style="color: #339933;">=</span><span style="color: #009900;">{</span>styles.<span style="color: #660066;">image</span><span style="color: #009900;">}</span><span style="color: #339933;">/&gt;</span></pre></td></tr></tbody></table></div>
+
+<p>Now, add the image’s corresponding style to the end of the style list, remembering to add a trailing comma to the previous style:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p9947325"><td class="code" id="p99473code25"><pre class="javascript" style="font-family:monospace;">image<span style="color: #339933;">:</span> <span style="color: #009900;">{</span>
+  width<span style="color: #339933;">:</span> <span style="color: #CC0000;">217</span><span style="color: #339933;">,</span>
+  height<span style="color: #339933;">:</span> <span style="color: #CC0000;">138</span>
+<span style="color: #009900;">}</span></pre></td></tr></tbody></table></div>
+
+<p>The <code>require('image!house')</code> statement is used to reference an image located within your application’s asset catalogue. Within Xcode, if you open up <em>Images.xcassets</em> you will find the ‘house’ icon that the above code refers to.</p>
+<p>Returning to the simulator, hit Cmd+R and admire your new UI:</p>
+<p><a href="http://cdn2.raywenderlich.com/wp-content/uploads/2015/03/react-searchpagehouse.png" sl-processed="1"><img src="./Introducing React Native  Building Apps with JavaScript_files/react-searchpagehouse-281x500.png" alt="react-searchpagehouse" width="281" height="500" class="aligncenter bordered size-large wp-image-99720"></a></p>
+<div class="note"><em>Note:</em> If you don’t see the house image at this point and see an image that “image!house” cannot be found instead, try restarting the packager (i.e. the “npm start” command you have in the terminal).</div>
+<p>Your current app looks good, but it’s somewhat lacking in functionality. Your task now is to add some state to your app and perform some actions.</p>
+<h2>Adding Component State</h2>
+<p>Each React component has its own state object, which is used as a key-value store. Before a component is rendered you must set the initial state.</p>
+<p>Within <em>SearchPage.js</em>, add the following code to the <code>SearchPage</code> class, just before <code>render()</code>:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p9947326"><td class="code" id="p99473code26"><pre class="javascript" style="font-family:monospace;">constructor<span style="color: #009900;">(</span>props<span style="color: #009900;">)</span> <span style="color: #009900;">{</span>
+  <span style="color: #003366; font-weight: bold;">super</span><span style="color: #009900;">(</span>props<span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+  <span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">state</span> <span style="color: #339933;">=</span> <span style="color: #009900;">{</span>
+    searchString<span style="color: #339933;">:</span> <span style="color: #3366CC;">'london'</span>
+  <span style="color: #009900;">}</span><span style="color: #339933;">;</span>
+<span style="color: #009900;">}</span></pre></td></tr></tbody></table></div>
+
+<p>Your component now has a <code>state</code> variable, with <code>searchString</code> set to an initial value of <code>london</code>.</p>
+<p>Time to make use of this component state. Within <code>render</code>, change the <code>TextInput</code> element to the following:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p9947327"><td class="code" id="p99473code27"><pre class="javascript" style="font-family:monospace;"><span style="color: #339933;">&lt;</span>TextInput
+  style<span style="color: #339933;">=</span><span style="color: #009900;">{</span>styles.<span style="color: #660066;">searchInput</span><span style="color: #009900;">}</span>
+  value<span style="color: #339933;">=</span><span style="color: #009900;">{</span><span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">state</span>.<span style="color: #660066;">searchString</span><span style="color: #009900;">}</span>
+  placeholder<span style="color: #339933;">=</span><span style="color: #3366CC;">'Search via name or postcode'</span><span style="color: #339933;">/&gt;</span></pre></td></tr></tbody></table></div>
+
+<p>This sets the <code>TextInput</code> value property — that is, the text displayed to the user — to the current value of the <code>searchString</code> state variable. This takes care of setting the initial state, but what happens when the user edits this text?</p>
+<p>The first step is to create a method that acts as an event handler. Within the <code>SearchPage</code> class add the following method:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p9947328"><td class="code" id="p99473code28"><pre class="javascript" style="font-family:monospace;">onSearchTextChanged<span style="color: #009900;">(</span>event<span style="color: #009900;">)</span> <span style="color: #009900;">{</span>
+  console.<span style="color: #660066;">log</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'onSearchTextChanged'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+  <span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">setState</span><span style="color: #009900;">(</span><span style="color: #009900;">{</span> searchString<span style="color: #339933;">:</span> event.<span style="color: #660066;">nativeEvent</span>.<span style="color: #660066;">text</span> <span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+  console.<span style="color: #660066;">log</span><span style="color: #009900;">(</span><span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">state</span>.<span style="color: #660066;">searchString</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+<span style="color: #009900;">}</span></pre></td></tr></tbody></table></div>
+
+<p>This takes the value from the event’s <code>text</code> property and uses it to update the component’s state. It also adds some logging code that will make sense shortly.</p>
+<p>To wire up this method so it gets called when the text changes, return to the <code>TextInput</code> field within the <code>render</code> method and add an <code>onChange</code> property so the tag looks like the following:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p9947329"><td class="code" id="p99473code29"><pre class="javascript" style="font-family:monospace;"><span style="color: #339933;">&lt;</span>TextInput
+  style<span style="color: #339933;">=</span><span style="color: #009900;">{</span>styles.<span style="color: #660066;">searchInput</span><span style="color: #009900;">}</span>
+  value<span style="color: #339933;">=</span><span style="color: #009900;">{</span><span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">state</span>.<span style="color: #660066;">searchString</span><span style="color: #009900;">}</span>
+  onChange<span style="color: #339933;">=</span><span style="color: #009900;">{</span><span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">onSearchTextChanged</span>.<span style="color: #660066;">bind</span><span style="color: #009900;">(</span><span style="color: #000066; font-weight: bold;">this</span><span style="color: #009900;">)</span><span style="color: #009900;">}</span>
+  placeholder<span style="color: #339933;">=</span><span style="color: #3366CC;">'Search via name or postcode'</span><span style="color: #339933;">/&gt;</span></pre></td></tr></tbody></table></div>
+
+<p>Whenever the user changes the text, you invoke the function supplied to <code>onChange</code>; in this case, it’s <code>onSearchTextChanged</code>.</p>
+<div class="note">
+<p><em>Note:</em> You might be wondering what the <code>bind(this)</code> statement is for. JavaScript treats the <code>this</code> keyword a little differently than most other languages; its counterpart in Swift is <code>self</code>. The use of <code>bind</code> in this context ensures that inside the <code>onSearchTextChanged</code> method, <code>this</code> is a reference to the component instance. For more information, see the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this" sl-processed="1">MDN page on <code>this</code></a>.</p></div>
+<p>There’s one final step before you refresh your app again: add the following logging statement to the top of <code>render()</code>, just before <code>return</code>:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p9947330"><td class="code" id="p99473code30"><pre class="javascript" style="font-family:monospace;">console.<span style="color: #660066;">log</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'SearchPage.render'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></pre></td></tr></tbody></table></div>
+
+<p>You are about to learn something quite intriguing from these log statements! :]</p>
+<p>Return to your simulator, then press <em>Cmd+R</em>. You should now see that the text input has an initial value of ‘london’ and that editing the text causes some statements to be logged to the Xcode console:</p>
+<p><img src="./Introducing React Native  Building Apps with JavaScript_files/react-renderconsole.png" alt="react-renderconsole" width="235" height="73" class="aligncenter size-full wp-image-99734"></p>
+<p>Looking at the screenshot above, the order of the logging statement seems a little odd:</p>
+<ol>
+<li>This is the initial call to <code>render()</code> to set up the view.</li>
+<li>You invoke <code>onSearchTextChanged()</code> when the text changes.</li>
+<li>You then update the component state to reflect the new input text, which triggers another render.</li>
+<li><code>onSearchTextChanged()</code> then wraps things up by logging the new search string.</li>
+</ol>
+<p>Whenever the app updates the state of any React component, this triggers an entire UI re-rendering that in turn calls <code>render</code> of all of your components. This is a great idea, as it entirely de-couples the rendering logic from the state changes that affect the UI.</p>
+<p>With most other UI frameworks, it is either your responsibility to manually update the UI based on state changes, or use of some kind of binding framework which creates an implicit link between the application state and its UI representation; see, for example, my article on implementing the <a href="http://www.raywenderlich.com/74106/mvvm-tutorial-with-reactivecocoa-part-1" sl-processed="1">MVVM pattern with ReactiveCocoa</a>.</p>
+<p>With React, you no longer have to worry about which parts of the UI might be affected by a state change; your entire UI is simply expressed as a function of your application state.</p>
+<p>At this point you’ve probably spotted a fundamental flaw in this concept. Yes, that’s right — performance!</p>
+<p>Surely you can’t just throw away your entire UI and re-build it every time something changes? This is where React gets really smart. Each time the UI renders itself, it takes the view tree returned by your render methods, and reconciles — or diffs — it with the current UIKit view. The output of this reconciliation process is a simple list of updates that React needs to apply to the current view. That means only the things that have actually changed will re-render.</p>
+<p>It’s amazing to see the novel concepts that make ReactJS so unique — the virtual-DOM (Document Object Model, the visual-tree of a web document) and reconciliation — applied to an iOS app.</p>
+<p>You can wrap your head around all that later; you still have some work to do in the app. Remove the logging code you just added above, since it’s no longer necessary and just adds cruft to the code.</p>
+<h2>Initiating a Search</h2>
+<p>In order to implement the search functionality you need handle the ‘Go’ button press, create a suitable API request, and provide a visual indication to the user that a query is in progress.</p>
+<p>Within <em>SearchPage.js</em>, update the initial state within the constructor:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p9947331"><td class="code" id="p99473code31"><pre class="javascript" style="font-family:monospace;"><span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">state</span> <span style="color: #339933;">=</span> <span style="color: #009900;">{</span>
+  searchString<span style="color: #339933;">:</span> <span style="color: #3366CC;">'london'</span><span style="color: #339933;">,</span>
+  isLoading<span style="color: #339933;">:</span> <span style="color: #003366; font-weight: bold;">false</span>
+<span style="color: #009900;">}</span><span style="color: #339933;">;</span></pre></td></tr></tbody></table></div>
+
+<p>The new <code>isLoading</code> property will keep track of whether a query is in progress.</p>
+<p>Add the following logic to the start of <code>render</code>:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p9947332"><td class="code" id="p99473code32"><pre class="javascript" style="font-family:monospace;"><span style="color: #003366; font-weight: bold;">var</span> spinner <span style="color: #339933;">=</span> <span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">state</span>.<span style="color: #660066;">isLoading</span> <span style="color: #339933;">?</span>
+  <span style="color: #009900;">(</span> <span style="color: #339933;">&lt;</span>ActivityIndicatorIOS
+      hidden<span style="color: #339933;">=</span><span style="color: #3366CC;">'true'</span>
+      size<span style="color: #339933;">=</span><span style="color: #3366CC;">'large'</span><span style="color: #339933;">/&gt;</span> <span style="color: #009900;">)</span> <span style="color: #339933;">:</span>
+  <span style="color: #009900;">(</span> <span style="color: #339933;">&lt;</span>View<span style="color: #339933;">/&gt;</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></pre></td></tr></tbody></table></div>
+
+<p>This is a ternary <code>if</code> statement that either adds an activity indicator or an empty view, depending on the component’s <code>isLoading</code> state. Because the entire component is rendered each time, you are free to mix JSX and JavaScript logic.</p>
+<p>Within the JSX that defines the search UI in <code>return</code>, add the following line below the <code>Image</code>:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p9947333"><td class="code" id="p99473code33"><pre class="javascript" style="font-family:monospace;"><span style="color: #009900;">{</span>spinner<span style="color: #009900;">}</span></pre></td></tr></tbody></table></div>
+
+<p>Now, add the following property within the <code>TouchableHighlight</code> tag that renders the ‘Go’ text:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p9947334"><td class="code" id="p99473code34"><pre class="javascript" style="font-family:monospace;">onPress<span style="color: #339933;">=</span><span style="color: #009900;">{</span><span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">onSearchPressed</span>.<span style="color: #660066;">bind</span><span style="color: #009900;">(</span><span style="color: #000066; font-weight: bold;">this</span><span style="color: #009900;">)</span><span style="color: #009900;">}</span></pre></td></tr></tbody></table></div>
+
+<p>Next, add the following methods to the <code>SearchPage</code> class:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p9947335"><td class="code" id="p99473code35"><pre class="javascript" style="font-family:monospace;">_executeQuery<span style="color: #009900;">(</span>query<span style="color: #009900;">)</span> <span style="color: #009900;">{</span>
+  console.<span style="color: #660066;">log</span><span style="color: #009900;">(</span>query<span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+  <span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">setState</span><span style="color: #009900;">(</span><span style="color: #009900;">{</span> isLoading<span style="color: #339933;">:</span> <span style="color: #003366; font-weight: bold;">true</span> <span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+<span style="color: #009900;">}</span>
+&nbsp;
+onSearchPressed<span style="color: #009900;">(</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span>
+  <span style="color: #003366; font-weight: bold;">var</span> query <span style="color: #339933;">=</span> urlForQueryAndPage<span style="color: #009900;">(</span><span style="color: #3366CC;">'place_name'</span><span style="color: #339933;">,</span> <span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">state</span>.<span style="color: #660066;">searchString</span><span style="color: #339933;">,</span> <span style="color: #CC0000;">1</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+  <span style="color: #000066; font-weight: bold;">this</span>._executeQuery<span style="color: #009900;">(</span>query<span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+<span style="color: #009900;">}</span></pre></td></tr></tbody></table></div>
+
+<p><code>_executeQuery()</code> will eventually run the query, but for now it simply logs a message to the console and sets <code>isLoading</code> appropriately so the UI can show the new state.</p>
+<div class="note">
+<p><em>Note:</em> JavaScript classes do not have access modifiers, so they have no concept of ‘private’. As a result you often see developers prefixing methods with an underscore to indicate that they should be considered private.</p></div>
+<p>You’ll invoke <code>onSearchPressed()</code> and initiate the query when the ‘Go’ button is pressed.</p>
+<p>Finally, add the following utility function just above the <code>SearchPage</code> class declaration:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p9947336"><td class="code" id="p99473code36"><pre class="javascript" style="font-family:monospace;"><span style="color: #003366; font-weight: bold;">function</span> urlForQueryAndPage<span style="color: #009900;">(</span>key<span style="color: #339933;">,</span> value<span style="color: #339933;">,</span> pageNumber<span style="color: #009900;">)</span> <span style="color: #009900;">{</span>
+  <span style="color: #003366; font-weight: bold;">var</span> data <span style="color: #339933;">=</span> <span style="color: #009900;">{</span>
+      country<span style="color: #339933;">:</span> <span style="color: #3366CC;">'uk'</span><span style="color: #339933;">,</span>
+      pretty<span style="color: #339933;">:</span> <span style="color: #3366CC;">'1'</span><span style="color: #339933;">,</span>
+      encoding<span style="color: #339933;">:</span> <span style="color: #3366CC;">'json'</span><span style="color: #339933;">,</span>
+      listing_type<span style="color: #339933;">:</span> <span style="color: #3366CC;">'buy'</span><span style="color: #339933;">,</span>
+      action<span style="color: #339933;">:</span> <span style="color: #3366CC;">'search_listings'</span><span style="color: #339933;">,</span>
+      page<span style="color: #339933;">:</span> pageNumber
+  <span style="color: #009900;">}</span><span style="color: #339933;">;</span>
+  data<span style="color: #009900;">[</span>key<span style="color: #009900;">]</span> <span style="color: #339933;">=</span> value<span style="color: #339933;">;</span>
+&nbsp;
+  <span style="color: #003366; font-weight: bold;">var</span> querystring <span style="color: #339933;">=</span> Object.<span style="color: #660066;">keys</span><span style="color: #009900;">(</span>data<span style="color: #009900;">)</span>
+    .<span style="color: #660066;">map</span><span style="color: #009900;">(</span>key <span style="color: #339933;">=&gt;</span> key <span style="color: #339933;">+</span> <span style="color: #3366CC;">'='</span> <span style="color: #339933;">+</span> encodeURIComponent<span style="color: #009900;">(</span>data<span style="color: #009900;">[</span>key<span style="color: #009900;">]</span><span style="color: #009900;">)</span><span style="color: #009900;">)</span>
+    .<span style="color: #660066;">join</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'&amp;'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+&nbsp;
+  <span style="color: #000066; font-weight: bold;">return</span> <span style="color: #3366CC;">'http://api.nestoria.co.uk/api?'</span> <span style="color: #339933;">+</span> querystring<span style="color: #339933;">;</span>
+<span style="color: #009900;">}</span><span style="color: #339933;">;</span></pre></td></tr></tbody></table></div>
+
+<p>This function doesn’t depend on <code>SearchPage</code>, so it’s implemented as a free function rather than a method. It first creates the query string based on the parameters in <code>data</code>. Following this, it transforms the data into the required string format, <code>name=value</code> pairs separated by ampersands. The <code>=&gt;</code> syntax is an arrow function, another <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions" sl-processed="1">recent addition to the JavaScript language</a> that provides a succinct syntax for creating anonymous functions.</p>
+<p>Head back to the simulator, press <em>Cmd+R</em> to reload the application and tap the ‘Go’ button. You’ll see the activity indicator spin; take a look at the Xcode console to see what it’s telling you:</p>
+<p><a href="http://cdn1.raywenderlich.com/wp-content/uploads/2015/03/SearchAcitivityIndicator.png" sl-processed="1"><img src="./Introducing React Native  Building Apps with JavaScript_files/SearchAcitivityIndicator-700x169.png" alt="SearchAcitivityIndicator" width="700" height="169" class="alignnone size-large wp-image-99493"></a></p>
+<p>The activity indicator renders and the URL for the required query appears in the log. Copy and paste that URL into your browser to see the result. You’ll see a massive JSON object. Don’t worry — you don’t need to understand that! You’ll add code to parse that now.</p>
+<div class="note"><em>Note:</em> This app makes use of the <a href="http://www.nestoria.co.uk/help/api" sl-processed="1">Nestoria API for searching property listings</a>. The JSON response coming back from the API is pretty straightforward, but you can have a look at the documentation for all the details on the expected request URL and response formats.</div>
+<p>The next step is to make the request from within your application.</p>
+<h2>Performing an API Request</h2>
+<p>Still within <em>SearchPage.js</em>, update the initial state in the class constructor to add a <code>message</code> variable:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p9947337"><td class="code" id="p99473code37"><pre class="javascript" style="font-family:monospace;"><span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">state</span> <span style="color: #339933;">=</span> <span style="color: #009900;">{</span>
+  searchString<span style="color: #339933;">:</span> <span style="color: #3366CC;">'london'</span><span style="color: #339933;">,</span>
+  isLoading<span style="color: #339933;">:</span> <span style="color: #003366; font-weight: bold;">false</span><span style="color: #339933;">,</span>
+  message<span style="color: #339933;">:</span> <span style="color: #3366CC;">''</span>
+<span style="color: #009900;">}</span><span style="color: #339933;">;</span></pre></td></tr></tbody></table></div>
+
+<p>Within <code>render</code>, add the following to the bottom of your UI:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p9947338"><td class="code" id="p99473code38"><pre class="javascript" style="font-family:monospace;"><span style="color: #339933;">&lt;</span>Text style<span style="color: #339933;">=</span><span style="color: #009900;">{</span>styles.<span style="color: #660066;">description</span><span style="color: #009900;">}</span><span style="color: #339933;">&gt;</span><span style="color: #009900;">{</span><span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">state</span>.<span style="color: #660066;">message</span><span style="color: #009900;">}</span><span style="color: #339933;">&lt;/</span>Text<span style="color: #339933;">&gt;</span></pre></td></tr></tbody></table></div>
+
+<p>You’ll use this to display a range of messages to the user.</p>
+<p>Within the <code>SearchPage</code> class, add the following code to the end of <code>_executeQuery()</code>:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p9947339"><td class="code" id="p99473code39"><pre class="javascript" style="font-family:monospace;">fetch<span style="color: #009900;">(</span>query<span style="color: #009900;">)</span>
+  .<span style="color: #660066;">then</span><span style="color: #009900;">(</span>response <span style="color: #339933;">=&gt;</span> response.<span style="color: #660066;">json</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #009900;">)</span>
+  .<span style="color: #660066;">then</span><span style="color: #009900;">(</span>json <span style="color: #339933;">=&gt;</span> <span style="color: #000066; font-weight: bold;">this</span>._handleResponse<span style="color: #009900;">(</span>json.<span style="color: #660066;">response</span><span style="color: #009900;">)</span><span style="color: #009900;">)</span>
+  .<span style="color: #000066; font-weight: bold;">catch</span><span style="color: #009900;">(</span>error <span style="color: #339933;">=&gt;</span> 
+     <span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">setState</span><span style="color: #009900;">(</span><span style="color: #009900;">{</span>
+      isLoading<span style="color: #339933;">:</span> <span style="color: #003366; font-weight: bold;">false</span><span style="color: #339933;">,</span>
+      message<span style="color: #339933;">:</span> <span style="color: #3366CC;">'Something bad happened '</span> <span style="color: #339933;">+</span> error
+   <span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></pre></td></tr></tbody></table></div>
+
+<p>This makes use of the <code>fetch</code> function, which is <a href="https://fetch.spec.whatwg.org/" sl-processed="1">part of the Web API</a>, and provides a vastly improved API versus XMLHttpRequest. The asynchronous response is returned as a <a href="http://www.html5rocks.com/en/tutorials/es6/promises/" sl-processed="1">promise</a>, with the success path parsing the JSON and supplying it to a method which you are going to add next.</p>
+<p>The final step is to add the following function to <code>SearchPage</code>:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p9947340"><td class="code" id="p99473code40"><pre class="javascript" style="font-family:monospace;">_handleResponse<span style="color: #009900;">(</span>response<span style="color: #009900;">)</span> <span style="color: #009900;">{</span>
+  <span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">setState</span><span style="color: #009900;">(</span><span style="color: #009900;">{</span> isLoading<span style="color: #339933;">:</span> <span style="color: #003366; font-weight: bold;">false</span> <span style="color: #339933;">,</span> message<span style="color: #339933;">:</span> <span style="color: #3366CC;">''</span> <span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+  <span style="color: #000066; font-weight: bold;">if</span> <span style="color: #009900;">(</span>response.<span style="color: #660066;">application_response_code</span>.<span style="color: #660066;">substr</span><span style="color: #009900;">(</span><span style="color: #CC0000;">0</span><span style="color: #339933;">,</span> <span style="color: #CC0000;">1</span><span style="color: #009900;">)</span> <span style="color: #339933;">===</span> <span style="color: #3366CC;">'1'</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span>
+    console.<span style="color: #660066;">log</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'Properties found: '</span> <span style="color: #339933;">+</span> response.<span style="color: #660066;">listings</span>.<span style="color: #660066;">length</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+  <span style="color: #009900;">}</span> <span style="color: #000066; font-weight: bold;">else</span> <span style="color: #009900;">{</span>
+    <span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">setState</span><span style="color: #009900;">(</span><span style="color: #009900;">{</span> message<span style="color: #339933;">:</span> <span style="color: #3366CC;">'Location not recognized; please try again.'</span><span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+  <span style="color: #009900;">}</span>
+<span style="color: #009900;">}</span></pre></td></tr></tbody></table></div>
+
+<p>This clears <code>isLoading</code> and logs the number of properties found if the query was successful.</p>
+<div class="note">
+<p><em>Note:</em> Nestoria has <a href="http://www.nestoria.co.uk/help/api-return-codes" sl-processed="1">a number of non-1** response codes</a> that are potentially useful. For example, 202 and 200 return a list of best-guess locations. When you’ve finished building your app, why not try handling these and present a list of options to the user?</p></div>
+<p>Save your work, then in the simulator press <em>Cmd+R</em> and try searching for ‘london’; you should see a log message saying that 20 properties were found. Next try a non-existent location, such as ‘narnia’ (*sniff*), and you’ll be greeted by the following message:</p>
+<p><a href="http://cdn5.raywenderlich.com/wp-content/uploads/2015/03/react-narnia.png" sl-processed="1"><img src="./Introducing React Native  Building Apps with JavaScript_files/react-narnia-281x500.png" alt="react-narnia" width="281" height="500" class="aligncenter bordered size-large wp-image-99719"></a></p>
+<p>It’s time to see what those 20 properties in real places such as London look like!</p>
+<h2>Displaying the Results</h2>
+<p>Create a new file <em>SearchResults.js</em>, and add the following:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p9947341"><td class="code" id="p99473code41"><pre class="javascript" style="font-family:monospace;"><span style="color: #3366CC;">'use strict'</span><span style="color: #339933;">;</span>
+&nbsp;
+<span style="color: #003366; font-weight: bold;">var</span> React <span style="color: #339933;">=</span> require<span style="color: #009900;">(</span><span style="color: #3366CC;">'react-native'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+<span style="color: #003366; font-weight: bold;">var</span> <span style="color: #009900;">{</span>
+  StyleSheet<span style="color: #339933;">,</span>
+  Image<span style="color: #339933;">,</span> 
+  View<span style="color: #339933;">,</span>
+  TouchableHighlight<span style="color: #339933;">,</span>
+  ListView<span style="color: #339933;">,</span>
+  Text<span style="color: #339933;">,</span>
+  Component
+<span style="color: #009900;">}</span> <span style="color: #339933;">=</span> React<span style="color: #339933;">;</span></pre></td></tr></tbody></table></div>
+
+<p>Yes, that’s right, it’s a <code>require</code> statement that includes the <code>react-native</code> module, and a destructuring assignment. You’ve been paying attention haven’t you? :]</p>
+<p>Next add the component itself:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p9947342"><td class="code" id="p99473code42"><pre class="javascript" style="font-family:monospace;"><span style="color: #003366; font-weight: bold;">class</span> SearchResults <span style="color: #003366; font-weight: bold;">extends</span> Component <span style="color: #009900;">{</span>
+&nbsp;
+  constructor<span style="color: #009900;">(</span>props<span style="color: #009900;">)</span> <span style="color: #009900;">{</span>
+    <span style="color: #003366; font-weight: bold;">super</span><span style="color: #009900;">(</span>props<span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+    <span style="color: #003366; font-weight: bold;">var</span> dataSource <span style="color: #339933;">=</span> <span style="color: #003366; font-weight: bold;">new</span> ListView.<span style="color: #660066;">DataSource</span><span style="color: #009900;">(</span>
+      <span style="color: #009900;">{</span>rowHasChanged<span style="color: #339933;">:</span> <span style="color: #009900;">(</span>r1<span style="color: #339933;">,</span> r2<span style="color: #009900;">)</span> <span style="color: #339933;">=&gt;</span> r1.<span style="color: #660066;">guid</span> <span style="color: #339933;">!==</span> r2.<span style="color: #660066;">guid</span><span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+    <span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">state</span> <span style="color: #339933;">=</span> <span style="color: #009900;">{</span>
+      dataSource<span style="color: #339933;">:</span> dataSource.<span style="color: #660066;">cloneWithRows</span><span style="color: #009900;">(</span><span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">props</span>.<span style="color: #660066;">listings</span><span style="color: #009900;">)</span>
+    <span style="color: #009900;">}</span><span style="color: #339933;">;</span>
+  <span style="color: #009900;">}</span>
+&nbsp;
+  renderRow<span style="color: #009900;">(</span>rowData<span style="color: #339933;">,</span> sectionID<span style="color: #339933;">,</span> rowID<span style="color: #009900;">)</span> <span style="color: #009900;">{</span>
+    <span style="color: #000066; font-weight: bold;">return</span> <span style="color: #009900;">(</span>
+      <span style="color: #339933;">&lt;</span>TouchableHighlight
+          underlayColor<span style="color: #339933;">=</span><span style="color: #3366CC;">'#dddddd'</span><span style="color: #339933;">&gt;</span>
+        <span style="color: #339933;">&lt;</span>View<span style="color: #339933;">&gt;</span>
+          <span style="color: #339933;">&lt;</span>Text<span style="color: #339933;">&gt;</span><span style="color: #009900;">{</span>rowData.<span style="color: #660066;">title</span><span style="color: #009900;">}</span><span style="color: #339933;">&lt;/</span>Text<span style="color: #339933;">&gt;</span>
+        <span style="color: #339933;">&lt;/</span>View<span style="color: #339933;">&gt;</span>
+      <span style="color: #339933;">&lt;/</span>TouchableHighlight<span style="color: #339933;">&gt;</span>
+    <span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+  <span style="color: #009900;">}</span>
+&nbsp;
+  render<span style="color: #009900;">(</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span>
+    <span style="color: #000066; font-weight: bold;">return</span> <span style="color: #009900;">(</span>
+      <span style="color: #339933;">&lt;</span>ListView
+        dataSource<span style="color: #339933;">=</span><span style="color: #009900;">{</span><span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">state</span>.<span style="color: #660066;">dataSource</span><span style="color: #009900;">}</span>
+        renderRow<span style="color: #339933;">=</span><span style="color: #009900;">{</span><span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">renderRow</span>.<span style="color: #660066;">bind</span><span style="color: #009900;">(</span><span style="color: #000066; font-weight: bold;">this</span><span style="color: #009900;">)</span><span style="color: #009900;">}</span><span style="color: #339933;">/&gt;</span>
+    <span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+  <span style="color: #009900;">}</span>
+&nbsp;
+<span style="color: #009900;">}</span></pre></td></tr></tbody></table></div>
+
+<p>The above code makes use of a more specialized component — <code>ListView</code> — which displays rows of data within a scrolling container, similar to <code>UITableView</code>. You supply data to the <code>ListView</code> via a <code>ListView.DataSource</code>, and a function that supplies the UI for each row.</p>
+<p>When constructing the data source, you provide a function that compares the identity of a pair of rows. The <code>ListView</code> uses this during the reconciliation process, in order to determine the changes in the list data. In this instance, the properties returned by the Nestoria API have a <code>guid</code> property, which is a suitable check for this purpose.</p>
+<p>Now add the module export to the end of the file:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p9947343"><td class="code" id="p99473code43"><pre class="javascript" style="font-family:monospace;">module.<span style="color: #660066;">exports</span> <span style="color: #339933;">=</span> SearchResults<span style="color: #339933;">;</span></pre></td></tr></tbody></table></div>
+
+<p>Add the following to <em>SearchPage.js</em> near the top of the file, underneath the <code>require</code> call for React:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p9947344"><td class="code" id="p99473code44"><pre class="javascript" style="font-family:monospace;"><span style="color: #003366; font-weight: bold;">var</span> SearchResults <span style="color: #339933;">=</span> require<span style="color: #009900;">(</span><span style="color: #3366CC;">'./SearchResults'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></pre></td></tr></tbody></table></div>
+
+<p>This allows us to use the newly added <code>SearchResults</code> class from within the <code>SearchPage</code> class.</p>
+<p>Modify the current <code>_handleResponse</code> method by replacing the <code>console.log</code> statement with the following:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p9947345"><td class="code" id="p99473code45"><pre class="javascript" style="font-family:monospace;"><span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">props</span>.<span style="color: #660066;">navigator</span>.<span style="color: #660066;">push</span><span style="color: #009900;">(</span><span style="color: #009900;">{</span>
+  title<span style="color: #339933;">:</span> <span style="color: #3366CC;">'Results'</span><span style="color: #339933;">,</span>
+  component<span style="color: #339933;">:</span> SearchResults<span style="color: #339933;">,</span>
+  passProps<span style="color: #339933;">:</span> <span style="color: #009900;">{</span>listings<span style="color: #339933;">:</span> response.<span style="color: #660066;">listings</span><span style="color: #009900;">}</span>
+<span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></pre></td></tr></tbody></table></div>
+
+<p>The above code navigates to your newly added <code>SearchResults</code> component and passes in the listings from the API request. Using the <code>push</code> method ensures the search results are pushed onto the navigation stack, which means you’ll get a ‘Back’ button to return to the root.</p>
+<p>Head back to the simulator, press <em>Cmd+R</em> and try a quick search. You’ll be greeted by a list of properties:</p>
+<p><a href="http://cdn4.raywenderlich.com/wp-content/uploads/2015/03/react-searchresults1.png" sl-processed="1"><img src="./Introducing React Native  Building Apps with JavaScript_files/react-searchresults1-281x500.png" alt="react-searchresults1" width="281" height="500" class="aligncenter bordered size-large wp-image-99731"></a></p>
+<p>It’s great to see the property listings, but that list is a little drab. Time to liven things up a bit.</p>
+<h2>A Touch of Style</h2>
+<p>This React Native code should be starting to look familiar by now, so this tutorial is going to pick up the pace.</p>
+<p>Add the following style definition just after the destructuring assignment in <em>SearchResults.js</em>:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p9947346"><td class="code" id="p99473code46"><pre class="javascript" style="font-family:monospace;"><span style="color: #003366; font-weight: bold;">var</span> styles <span style="color: #339933;">=</span> StyleSheet.<span style="color: #660066;">create</span><span style="color: #009900;">(</span><span style="color: #009900;">{</span>
+  thumb<span style="color: #339933;">:</span> <span style="color: #009900;">{</span>
+    width<span style="color: #339933;">:</span> <span style="color: #CC0000;">80</span><span style="color: #339933;">,</span>
+    height<span style="color: #339933;">:</span> <span style="color: #CC0000;">80</span><span style="color: #339933;">,</span>
+    marginRight<span style="color: #339933;">:</span> <span style="color: #CC0000;">10</span>
+  <span style="color: #009900;">}</span><span style="color: #339933;">,</span>
+  textContainer<span style="color: #339933;">:</span> <span style="color: #009900;">{</span>
+    flex<span style="color: #339933;">:</span> <span style="color: #CC0000;">1</span>
+  <span style="color: #009900;">}</span><span style="color: #339933;">,</span>
+  separator<span style="color: #339933;">:</span> <span style="color: #009900;">{</span>
+    height<span style="color: #339933;">:</span> <span style="color: #CC0000;">1</span><span style="color: #339933;">,</span>
+    backgroundColor<span style="color: #339933;">:</span> <span style="color: #3366CC;">'#dddddd'</span>
+  <span style="color: #009900;">}</span><span style="color: #339933;">,</span>
+  price<span style="color: #339933;">:</span> <span style="color: #009900;">{</span>
+    fontSize<span style="color: #339933;">:</span> <span style="color: #CC0000;">25</span><span style="color: #339933;">,</span>
+    fontWeight<span style="color: #339933;">:</span> <span style="color: #3366CC;">'bold'</span><span style="color: #339933;">,</span>
+    color<span style="color: #339933;">:</span> <span style="color: #3366CC;">'#48BBEC'</span>
+  <span style="color: #009900;">}</span><span style="color: #339933;">,</span>
+  title<span style="color: #339933;">:</span> <span style="color: #009900;">{</span>
+    fontSize<span style="color: #339933;">:</span> <span style="color: #CC0000;">20</span><span style="color: #339933;">,</span>
+    color<span style="color: #339933;">:</span> <span style="color: #3366CC;">'#656565'</span>
+  <span style="color: #009900;">}</span><span style="color: #339933;">,</span>
+  rowContainer<span style="color: #339933;">:</span> <span style="color: #009900;">{</span>
+    flexDirection<span style="color: #339933;">:</span> <span style="color: #3366CC;">'row'</span><span style="color: #339933;">,</span>
+    padding<span style="color: #339933;">:</span> <span style="color: #CC0000;">10</span>
+  <span style="color: #009900;">}</span>
+<span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></pre></td></tr></tbody></table></div>
+
+<p>This defines all the styles that you are going to use to render each row.</p>
+<p>Next replace <code>renderRow()</code> with the following:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p9947347"><td class="code" id="p99473code47"><pre class="javascript" style="font-family:monospace;">renderRow<span style="color: #009900;">(</span>rowData<span style="color: #339933;">,</span> sectionID<span style="color: #339933;">,</span> rowID<span style="color: #009900;">)</span> <span style="color: #009900;">{</span>
+  <span style="color: #003366; font-weight: bold;">var</span> price <span style="color: #339933;">=</span> rowData.<span style="color: #660066;">price_formatted</span>.<span style="color: #660066;">split</span><span style="color: #009900;">(</span><span style="color: #3366CC;">' '</span><span style="color: #009900;">)</span><span style="color: #009900;">[</span><span style="color: #CC0000;">0</span><span style="color: #009900;">]</span><span style="color: #339933;">;</span>
+&nbsp;
+  <span style="color: #000066; font-weight: bold;">return</span> <span style="color: #009900;">(</span>
+    <span style="color: #339933;">&lt;</span>TouchableHighlight onPress<span style="color: #339933;">=</span><span style="color: #009900;">{</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span> <span style="color: #339933;">=&gt;</span> <span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">rowPressed</span><span style="color: #009900;">(</span>rowData.<span style="color: #660066;">guid</span><span style="color: #009900;">)</span><span style="color: #009900;">}</span>
+        underlayColor<span style="color: #339933;">=</span><span style="color: #3366CC;">'#dddddd'</span><span style="color: #339933;">&gt;</span>
+      <span style="color: #339933;">&lt;</span>View<span style="color: #339933;">&gt;</span>
+        <span style="color: #339933;">&lt;</span>View style<span style="color: #339933;">=</span><span style="color: #009900;">{</span>styles.<span style="color: #660066;">rowContainer</span><span style="color: #009900;">}</span><span style="color: #339933;">&gt;</span>
+          <span style="color: #339933;">&lt;</span>Image style<span style="color: #339933;">=</span><span style="color: #009900;">{</span>styles.<span style="color: #660066;">thumb</span><span style="color: #009900;">}</span> source<span style="color: #339933;">=</span><span style="color: #009900;">{</span><span style="color: #009900;">{</span> uri<span style="color: #339933;">:</span> rowData.<span style="color: #660066;">img_url</span> <span style="color: #009900;">}</span><span style="color: #009900;">}</span> <span style="color: #339933;">/&gt;</span>
+          <span style="color: #339933;">&lt;</span>View  style<span style="color: #339933;">=</span><span style="color: #009900;">{</span>styles.<span style="color: #660066;">textContainer</span><span style="color: #009900;">}</span><span style="color: #339933;">&gt;</span>
+            <span style="color: #339933;">&lt;</span>Text style<span style="color: #339933;">=</span><span style="color: #009900;">{</span>styles.<span style="color: #660066;">price</span><span style="color: #009900;">}</span><span style="color: #339933;">&gt;</span>£<span style="color: #009900;">{</span>price<span style="color: #009900;">}</span><span style="color: #339933;">&lt;/</span>Text<span style="color: #339933;">&gt;</span>
+            <span style="color: #339933;">&lt;</span>Text style<span style="color: #339933;">=</span><span style="color: #009900;">{</span>styles.<span style="color: #660066;">title</span><span style="color: #009900;">}</span> 
+                  numberOfLines<span style="color: #339933;">=</span><span style="color: #009900;">{</span><span style="color: #CC0000;">1</span><span style="color: #009900;">}</span><span style="color: #339933;">&gt;</span><span style="color: #009900;">{</span>rowData.<span style="color: #660066;">title</span><span style="color: #009900;">}</span><span style="color: #339933;">&lt;/</span>Text<span style="color: #339933;">&gt;</span>
+          <span style="color: #339933;">&lt;/</span>View<span style="color: #339933;">&gt;</span>
+        <span style="color: #339933;">&lt;/</span>View<span style="color: #339933;">&gt;</span>
+        <span style="color: #339933;">&lt;</span>View style<span style="color: #339933;">=</span><span style="color: #009900;">{</span>styles.<span style="color: #660066;">separator</span><span style="color: #009900;">}</span><span style="color: #339933;">/&gt;</span>
+      <span style="color: #339933;">&lt;/</span>View<span style="color: #339933;">&gt;</span>
+    <span style="color: #339933;">&lt;/</span>TouchableHighlight<span style="color: #339933;">&gt;</span>
+  <span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+<span style="color: #009900;">}</span></pre></td></tr></tbody></table></div>
+
+<p>This manipulates the returned price, which is in the format ‘300,000 GBP’, to remove the GBP suffix. Then it renders the row UI using techniques that you are by now quite familiar with. This time, the data for the thumbnail image is supplied via a URL, and React Native takes care of decoding this off the main thread.</p>
+<p>Also, note the use of an arrow function in the <code>onPress</code> property of the <code>TouchableHighlight</code> component; this is used to capture the <code>guid</code> for the row.</p>
+<p>The final step is to add this method to the class to handle the press:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p9947348"><td class="code" id="p99473code48"><pre class="javascript" style="font-family:monospace;">rowPressed<span style="color: #009900;">(</span>propertyGuid<span style="color: #009900;">)</span> <span style="color: #009900;">{</span>
+  <span style="color: #003366; font-weight: bold;">var</span> property <span style="color: #339933;">=</span> <span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">props</span>.<span style="color: #660066;">listings</span>.<span style="color: #660066;">filter</span><span style="color: #009900;">(</span>prop <span style="color: #339933;">=&gt;</span> prop.<span style="color: #660066;">guid</span> <span style="color: #339933;">===</span> propertyGuid<span style="color: #009900;">)</span><span style="color: #009900;">[</span><span style="color: #CC0000;">0</span><span style="color: #009900;">]</span><span style="color: #339933;">;</span>
+<span style="color: #009900;">}</span></pre></td></tr></tbody></table></div>
+
+<p>This method locates the property that was tapped by the user. It doesn’t do anything with it yet, but you’ll fix that shortly. But right now, it’s time to admire your handiwork.</p>
+<p>Head back to the simulator, press <em>Cmd+R</em> and check out your results:</p>
+<p><a href="http://cdn4.raywenderlich.com/wp-content/uploads/2015/03/react-searchresults2.png" sl-processed="1"><img src="./Introducing React Native  Building Apps with JavaScript_files/react-searchresults2-281x500.png" alt="react-searchresults2" width="281" height="500" class="aligncenter bordered size-large wp-image-99732"></a></p>
+<p>That looks a lot better — although it’s a wonder anyone can afford to live in London!</p>
+<p>Time to add the final view to the application.</p>
+<h2>Property Details View</h2>
+<p>Add a new file <em>PropertyView.js</em> to the project, then add the following to the top of the file:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p9947349"><td class="code" id="p99473code49"><pre class="javascript" style="font-family:monospace;"><span style="color: #3366CC;">'use strict'</span><span style="color: #339933;">;</span>
+&nbsp;
+<span style="color: #003366; font-weight: bold;">var</span> React <span style="color: #339933;">=</span> require<span style="color: #009900;">(</span><span style="color: #3366CC;">'react-native'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+<span style="color: #003366; font-weight: bold;">var</span> <span style="color: #009900;">{</span>
+  StyleSheet<span style="color: #339933;">,</span>
+  Image<span style="color: #339933;">,</span> 
+  View<span style="color: #339933;">,</span>
+  Text<span style="color: #339933;">,</span>
+  Component
+<span style="color: #009900;">}</span> <span style="color: #339933;">=</span> React<span style="color: #339933;">;</span></pre></td></tr></tbody></table></div>
+
+<p>Surely you can do this in your sleep by now! :]</p>
+<p>Next add the following styles:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p9947350"><td class="code" id="p99473code50"><pre class="javascript" style="font-family:monospace;"><span style="color: #003366; font-weight: bold;">var</span> styles <span style="color: #339933;">=</span> StyleSheet.<span style="color: #660066;">create</span><span style="color: #009900;">(</span><span style="color: #009900;">{</span>
+  container<span style="color: #339933;">:</span> <span style="color: #009900;">{</span>
+    marginTop<span style="color: #339933;">:</span> <span style="color: #CC0000;">65</span>
+  <span style="color: #009900;">}</span><span style="color: #339933;">,</span>
+  heading<span style="color: #339933;">:</span> <span style="color: #009900;">{</span>
+    backgroundColor<span style="color: #339933;">:</span> <span style="color: #3366CC;">'#F8F8F8'</span><span style="color: #339933;">,</span>
+  <span style="color: #009900;">}</span><span style="color: #339933;">,</span>
+  separator<span style="color: #339933;">:</span> <span style="color: #009900;">{</span>
+    height<span style="color: #339933;">:</span> <span style="color: #CC0000;">1</span><span style="color: #339933;">,</span>
+    backgroundColor<span style="color: #339933;">:</span> <span style="color: #3366CC;">'#DDDDDD'</span>
+  <span style="color: #009900;">}</span><span style="color: #339933;">,</span>
+  image<span style="color: #339933;">:</span> <span style="color: #009900;">{</span>
+    width<span style="color: #339933;">:</span> <span style="color: #CC0000;">400</span><span style="color: #339933;">,</span>
+    height<span style="color: #339933;">:</span> <span style="color: #CC0000;">300</span>
+  <span style="color: #009900;">}</span><span style="color: #339933;">,</span>
+  price<span style="color: #339933;">:</span> <span style="color: #009900;">{</span>
+    fontSize<span style="color: #339933;">:</span> <span style="color: #CC0000;">25</span><span style="color: #339933;">,</span>
+    fontWeight<span style="color: #339933;">:</span> <span style="color: #3366CC;">'bold'</span><span style="color: #339933;">,</span>
+    margin<span style="color: #339933;">:</span> <span style="color: #CC0000;">5</span><span style="color: #339933;">,</span>
+    color<span style="color: #339933;">:</span> <span style="color: #3366CC;">'#48BBEC'</span>
+  <span style="color: #009900;">}</span><span style="color: #339933;">,</span>
+  title<span style="color: #339933;">:</span> <span style="color: #009900;">{</span>
+    fontSize<span style="color: #339933;">:</span> <span style="color: #CC0000;">20</span><span style="color: #339933;">,</span>
+    margin<span style="color: #339933;">:</span> <span style="color: #CC0000;">5</span><span style="color: #339933;">,</span>
+    color<span style="color: #339933;">:</span> <span style="color: #3366CC;">'#656565'</span>
+  <span style="color: #009900;">}</span><span style="color: #339933;">,</span>
+  description<span style="color: #339933;">:</span> <span style="color: #009900;">{</span>
+    fontSize<span style="color: #339933;">:</span> <span style="color: #CC0000;">18</span><span style="color: #339933;">,</span>
+    margin<span style="color: #339933;">:</span> <span style="color: #CC0000;">5</span><span style="color: #339933;">,</span>
+    color<span style="color: #339933;">:</span> <span style="color: #3366CC;">'#656565'</span>
+  <span style="color: #009900;">}</span>
+<span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></pre></td></tr></tbody></table></div>
+
+<p>Then add the component itself:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p9947351"><td class="code" id="p99473code51"><pre class="javascript" style="font-family:monospace;"><span style="color: #003366; font-weight: bold;">class</span> PropertyView <span style="color: #003366; font-weight: bold;">extends</span> Component <span style="color: #009900;">{</span>
+&nbsp;
+  render<span style="color: #009900;">(</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span>
+    <span style="color: #003366; font-weight: bold;">var</span> property <span style="color: #339933;">=</span> <span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">props</span>.<span style="color: #660066;">property</span><span style="color: #339933;">;</span>
+    <span style="color: #003366; font-weight: bold;">var</span> stats <span style="color: #339933;">=</span> property.<span style="color: #660066;">bedroom_number</span> <span style="color: #339933;">+</span> <span style="color: #3366CC;">' bed '</span> <span style="color: #339933;">+</span> property.<span style="color: #660066;">property_type</span><span style="color: #339933;">;</span>
+    <span style="color: #000066; font-weight: bold;">if</span> <span style="color: #009900;">(</span>property.<span style="color: #660066;">bathroom_number</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span>
+      stats <span style="color: #339933;">+=</span> <span style="color: #3366CC;">', '</span> <span style="color: #339933;">+</span> property.<span style="color: #660066;">bathroom_number</span> <span style="color: #339933;">+</span> <span style="color: #3366CC;">' '</span> <span style="color: #339933;">+</span> <span style="color: #009900;">(</span>property.<span style="color: #660066;">bathroom_number</span> <span style="color: #339933;">&gt;</span> <span style="color: #CC0000;">1</span>
+        <span style="color: #339933;">?</span> <span style="color: #3366CC;">'bathrooms'</span> <span style="color: #339933;">:</span> <span style="color: #3366CC;">'bathroom'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+    <span style="color: #009900;">}</span>
+&nbsp;
+    <span style="color: #003366; font-weight: bold;">var</span> price <span style="color: #339933;">=</span> property.<span style="color: #660066;">price_formatted</span>.<span style="color: #660066;">split</span><span style="color: #009900;">(</span><span style="color: #3366CC;">' '</span><span style="color: #009900;">)</span><span style="color: #009900;">[</span><span style="color: #CC0000;">0</span><span style="color: #009900;">]</span><span style="color: #339933;">;</span>
+&nbsp;
+    <span style="color: #000066; font-weight: bold;">return</span> <span style="color: #009900;">(</span>
+      <span style="color: #339933;">&lt;</span>View style<span style="color: #339933;">=</span><span style="color: #009900;">{</span>styles.<span style="color: #660066;">container</span><span style="color: #009900;">}</span><span style="color: #339933;">&gt;</span>
+        <span style="color: #339933;">&lt;</span>Image style<span style="color: #339933;">=</span><span style="color: #009900;">{</span>styles.<span style="color: #660066;">image</span><span style="color: #009900;">}</span> 
+            source<span style="color: #339933;">=</span><span style="color: #009900;">{</span><span style="color: #009900;">{</span>uri<span style="color: #339933;">:</span> property.<span style="color: #660066;">img_url</span><span style="color: #009900;">}</span><span style="color: #009900;">}</span> <span style="color: #339933;">/&gt;</span>
+        <span style="color: #339933;">&lt;</span>View style<span style="color: #339933;">=</span><span style="color: #009900;">{</span>styles.<span style="color: #660066;">heading</span><span style="color: #009900;">}</span><span style="color: #339933;">&gt;</span>
+          <span style="color: #339933;">&lt;</span>Text style<span style="color: #339933;">=</span><span style="color: #009900;">{</span>styles.<span style="color: #660066;">price</span><span style="color: #009900;">}</span><span style="color: #339933;">&gt;</span>£<span style="color: #009900;">{</span>price<span style="color: #009900;">}</span><span style="color: #339933;">&lt;/</span>Text<span style="color: #339933;">&gt;</span>
+          <span style="color: #339933;">&lt;</span>Text style<span style="color: #339933;">=</span><span style="color: #009900;">{</span>styles.<span style="color: #660066;">title</span><span style="color: #009900;">}</span><span style="color: #339933;">&gt;</span><span style="color: #009900;">{</span>property.<span style="color: #660066;">title</span><span style="color: #009900;">}</span><span style="color: #339933;">&lt;/</span>Text<span style="color: #339933;">&gt;</span>
+          <span style="color: #339933;">&lt;</span>View style<span style="color: #339933;">=</span><span style="color: #009900;">{</span>styles.<span style="color: #660066;">separator</span><span style="color: #009900;">}</span><span style="color: #339933;">/&gt;</span>
+        <span style="color: #339933;">&lt;/</span>View<span style="color: #339933;">&gt;</span>
+        <span style="color: #339933;">&lt;</span>Text style<span style="color: #339933;">=</span><span style="color: #009900;">{</span>styles.<span style="color: #660066;">description</span><span style="color: #009900;">}</span><span style="color: #339933;">&gt;</span><span style="color: #009900;">{</span>stats<span style="color: #009900;">}</span><span style="color: #339933;">&lt;/</span>Text<span style="color: #339933;">&gt;</span>
+        <span style="color: #339933;">&lt;</span>Text style<span style="color: #339933;">=</span><span style="color: #009900;">{</span>styles.<span style="color: #660066;">description</span><span style="color: #009900;">}</span><span style="color: #339933;">&gt;</span><span style="color: #009900;">{</span>property.<span style="color: #660066;">summary</span><span style="color: #009900;">}</span><span style="color: #339933;">&lt;/</span>Text<span style="color: #339933;">&gt;</span>
+      <span style="color: #339933;">&lt;/</span>View<span style="color: #339933;">&gt;</span>
+    <span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+  <span style="color: #009900;">}</span>
+<span style="color: #009900;">}</span></pre></td></tr></tbody></table></div>
+
+<p>The first part of <code>render()</code> performs some manipulation on the data. As is often the case, the data returned by the API is of mixed quality and often has missing fields. This code applies some simple logic to make the data a bit more presentable.</p>
+<p>The rest of <code>render</code> is quite straightforward; it’s simply a function of the immutable state of this component.</p>
+<p>Finally add the following export to the end of the file:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p9947352"><td class="code" id="p99473code52"><pre class="javascript" style="font-family:monospace;">module.<span style="color: #660066;">exports</span> <span style="color: #339933;">=</span> PropertyView<span style="color: #339933;">;</span></pre></td></tr></tbody></table></div>
+
+<p>Head back to <em>SearchResults.js</em> and add the <code>require</code> statement to the top of the file, just underneath the React <code>require</code> line:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p9947353"><td class="code" id="p99473code53"><pre class="javascript" style="font-family:monospace;"><span style="color: #003366; font-weight: bold;">var</span> PropertyView <span style="color: #339933;">=</span> require<span style="color: #009900;">(</span><span style="color: #3366CC;">'./PropertyView'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></pre></td></tr></tbody></table></div>
+
+<p>Next update <code>rowPressed()</code> to navigate to your newly added <code>PropertyView</code>:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p9947354"><td class="code" id="p99473code54"><pre class="javascript" style="font-family:monospace;">rowPressed<span style="color: #009900;">(</span>propertyGuid<span style="color: #009900;">)</span> <span style="color: #009900;">{</span>
+  <span style="color: #003366; font-weight: bold;">var</span> property <span style="color: #339933;">=</span> <span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">props</span>.<span style="color: #660066;">listings</span>.<span style="color: #660066;">filter</span><span style="color: #009900;">(</span>prop <span style="color: #339933;">=&gt;</span> prop.<span style="color: #660066;">guid</span> <span style="color: #339933;">===</span> propertyGuid<span style="color: #009900;">)</span><span style="color: #009900;">[</span><span style="color: #CC0000;">0</span><span style="color: #009900;">]</span><span style="color: #339933;">;</span>
+&nbsp;
+  <span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">props</span>.<span style="color: #660066;">navigator</span>.<span style="color: #660066;">push</span><span style="color: #009900;">(</span><span style="color: #009900;">{</span>
+    title<span style="color: #339933;">:</span> <span style="color: #3366CC;">"Property"</span><span style="color: #339933;">,</span>
+    component<span style="color: #339933;">:</span> PropertyView<span style="color: #339933;">,</span>
+    passProps<span style="color: #339933;">:</span> <span style="color: #009900;">{</span>property<span style="color: #339933;">:</span> property<span style="color: #009900;">}</span>
+  <span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+<span style="color: #009900;">}</span></pre></td></tr></tbody></table></div>
+
+<p>You know the drill: head back to the Simulator, press <em>Cmd+R</em>, and go all the way to the property details by running a search and tapping on a row:</p>
+<p><a href="http://cdn4.raywenderlich.com/wp-content/uploads/2015/03/react-property.png" sl-processed="1"><img src="./Introducing React Native  Building Apps with JavaScript_files/react-property-281x500.png" alt="react-property" width="281" height="500" class="aligncenter bordered size-large wp-image-99730"></a></p>
+<p>Affordable living at it’s finest — that’s a fancy looking pad!</p>
+<p>Your app is almost complete; the final step is to allow users to search for nearby properties.</p>
+<h2>Geolocation Search</h2>
+<p>Within Xcode, open <em>Info.plist</em> and add a new key, by right clicking inside the editor and selecting <em>Add Row</em>. Use <code>NSLocationWhenInUseUsageDescription</code> as the key name and use the following value:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p9947355"><td class="code" id="p99473code55"><pre class="console" style="font-family:monospace;">PropertyFinder would like to use your location to find nearby properties</pre></td></tr></tbody></table></div>
+
+<p>Here’s how your plist file will look once you’ve added the new key:</p>
+<p><a href="http://cdn5.raywenderlich.com/wp-content/uploads/2015/03/Screen-Shot-2015-03-20-at-21.49.06.png" sl-processed="1"><img src="./Introducing React Native  Building Apps with JavaScript_files/Screen-Shot-2015-03-20-at-21.49.06-480x162.png" alt="Info.plist after adding key" width="480" height="162" class="alignnone size-medium wp-image-99798"></a></p>
+<p>This key details the prompt that you’ll present to the to the user to request access to their current location.</p>
+<p>Open <em>SearchPage.js</em>, locate the <code>TouchableHighlight</code> that renders the ‘Location’ button and add the following property value:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p9947356"><td class="code" id="p99473code56"><pre class="javascript" style="font-family:monospace;">onPress<span style="color: #339933;">=</span><span style="color: #009900;">{</span><span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">onLocationPressed</span>.<span style="color: #660066;">bind</span><span style="color: #009900;">(</span><span style="color: #000066; font-weight: bold;">this</span><span style="color: #009900;">)</span><span style="color: #009900;">}</span></pre></td></tr></tbody></table></div>
+
+<p>When you tap the button, you ‘ll invoke <code>onLocationPressed</code> — you’re going to add that next. </p>
+<p>Add the following within the body of the <code>SearchPage</code> class:</p>
+
+<div class="wp_codebox"><table><tbody><tr id="p9947357"><td class="code" id="p99473code57"><pre class="javascript" style="font-family:monospace;">onLocationPressed<span style="color: #009900;">(</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span>
+  navigator.<span style="color: #660066;">geolocation</span>.<span style="color: #660066;">getCurrentPosition</span><span style="color: #009900;">(</span>
+    location <span style="color: #339933;">=&gt;</span> <span style="color: #009900;">{</span>
+      <span style="color: #003366; font-weight: bold;">var</span> search <span style="color: #339933;">=</span> location.<span style="color: #660066;">coords</span>.<span style="color: #660066;">latitude</span> <span style="color: #339933;">+</span> <span style="color: #3366CC;">','</span> <span style="color: #339933;">+</span> location.<span style="color: #660066;">coords</span>.<span style="color: #660066;">longitude</span><span style="color: #339933;">;</span>
+      <span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">setState</span><span style="color: #009900;">(</span><span style="color: #009900;">{</span> searchString<span style="color: #339933;">:</span> search <span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+      <span style="color: #003366; font-weight: bold;">var</span> query <span style="color: #339933;">=</span> urlForQueryAndPage<span style="color: #009900;">(</span><span style="color: #3366CC;">'centre_point'</span><span style="color: #339933;">,</span> search<span style="color: #339933;">,</span> <span style="color: #CC0000;">1</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+      <span style="color: #000066; font-weight: bold;">this</span>._executeQuery<span style="color: #009900;">(</span>query<span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+    <span style="color: #009900;">}</span><span style="color: #339933;">,</span>
+    error <span style="color: #339933;">=&gt;</span> <span style="color: #009900;">{</span>
+      <span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">setState</span><span style="color: #009900;">(</span><span style="color: #009900;">{</span>
+        message<span style="color: #339933;">:</span> <span style="color: #3366CC;">'There was a problem with obtaining your location: '</span> <span style="color: #339933;">+</span> error
+      <span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+    <span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+<span style="color: #009900;">}</span></pre></td></tr></tbody></table></div>
+
+<p>The current position is retrieved via <code>navigator.geolocation</code>; this is an interface <a href="https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/Using_geolocation" sl-processed="1">defined by the Web API</a>, so it should be familiar to anyone who has used location services within the browser. The React Native framework provides its own implementation of this API using the native iOS location services.</p>
+<p>If the current position is successfully obtained, you invoke the first arrow function; this sends a query to Nestoria. If something goes wrong, you’ll display a basic error message instead.</p>
+<p>Since you’ve made a change to the plist, you’ll need to relaunch the app to see your changes. No Cmd+R this time — sorry. Stop the app in Xcode, and build and run your project. </p>
+<p>Before you use the location-based search, you need to specify a location that is covered by the Nestoria database. From the simulator menu, select <em>Debug\Location\Custom Location …</em> and enter a latitude of <em>55.02</em> and a longitude of <em>-1.42</em>, the coordinates of a rather nice seaside town in the North of England that I like to call home!</p>
+<p><a href="http://cdn2.raywenderlich.com/wp-content/uploads/2015/03/WhitleyBaySearch.png" sl-processed="1"><img src="./Introducing React Native  Building Apps with JavaScript_files/WhitleyBaySearch-647x500.png" alt="WhitleyBaySearch" width="647" height="500" class="alignnone size-large wp-image-99511"></a></p>
+<div class="note"><em>Note from Ray:</em> Location searching worked for some of us, but not for others (reporting an access denied error even though we gave access) – we’re not sure why at the moment, perhaps an issue with React Native? If anyone has the same issue and figures it out, please let us know.</div>
+<p>It’s not quite as swank as London — but it’s a lot more affordable! :]</p>
+<h2>Where To Go From Here?</h2>
+<p>Congratulations on completing your first React Native application! You can <a href="https://github.com/ColinEberhardt/ReactNative-PropertyFinder" sl-processed="1">find the complete project on GitHub</a> with a commit for each ‘run’ step in the tutorial, very useful if you get lost along the way :]</p>
+<p>If you come from the web world, you can see how easy it is to define your interface and navigation with JavaScript and React to get a fully native UI from your code. If you work mainly on native apps, I hope you’ve gained a feel for the benefits of React Native: fast app iteration, modern JavaScript and clear style rules with CSS.</p>
+<p>Perhaps you might write your next app using this framework? Or then again, perhaps you will stick with Swift or Objective-C? Whichever path you take, I hope you have learned something new and interesting in this article, and can carry some of the principles forward into your next project.</p>
+<p>If you have any questions or comments on this tutorial, feel free to join the discussion in the forums below!</p>
+	
+					</div>
+					<footer>
+						<div class="social-links">
+			    			<ul>
+										    							<li class="twitter"><div id="tweetbutton99473m" class="tw_button" style="margin-bottom:10px;"><a href="http://twitter.com/share?url=http%3A%2F%2Fbit.ly%2F1FBATsT&via=rwenderlich&text=React%20Native%20Tutorial%3A%20Building%20Apps%20with%20JavaScript&related=rwenderlich&lang=en&count=horizontal&counturl=http%3A%2F%2Fwww.raywenderlich.com%2F99473%2Fintroducing-react-native-building-apps-javascript" class="twitter-share-button" style="width:55px;height:22px;background:transparent url(&#39;http://cdn3.raywenderlich.com/wp-content/plugins/wp-tweet-button/tweetn.png&#39;) no-repeat  0 0;text-align:left;text-indent:-9999px;display:block;" sl-processed="1">Tweet</a></div></li>
+		    															<li class="facebook"><div class="fb-like fb_iframe_widget" data-href="http://www.raywenderlich.com/99473/introducing-react-native-building-apps-javascript" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=&amp;container_width=90&amp;href=http%3A%2F%2Fwww.raywenderlich.com%2F99473%2Fintroducing-react-native-building-apps-javascript&amp;layout=button_count&amp;locale=en_US&amp;sdk=joey&amp;send=false&amp;show_faces=false&amp;width=450"><span style="vertical-align: top; width: 0px; height: 0px; overflow: hidden;"><iframe name="f4a403018" width="450px" height="1000px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:like Facebook Social Plugin" src="./Introducing React Native  Building Apps with JavaScript_files/saved_resource.html" style="border: none; visibility: visible; width: 0px; height: 0px;"></iframe></span></div></li>
+								<li class="facebook iframe-link"><iframe src="./Introducing React Native  Building Apps with JavaScript_files/saved_resource.html" allowtransparency="true" frameborder="0" scrolling="no" style="width: 50px; height: 20px;"></iframe></li>
+			    			</ul>
+			    		</div>
+					</footer>
+				</article>
+				<div id="author-information" class="clearfix">
+					<img src="./Introducing React Native  Building Apps with JavaScript_files/arrow@2x.png" width="40" height="21" id="arrow">
+								
+							<div class="author-photo">
+								<img src="./Introducing React Native  Building Apps with JavaScript_files/file.php" width="100" height="100" class="user-avatar">							</div>
+							<div class="author-meta">
+									<a href="http://www.raywenderlich.com/u/ColinEberhardt" sl-processed="1">Colin Eberhardt</a>									<p class="bio">Colin Eberhardt has been writing code and tutorials for many years, covering a wide range of technologies and platforms. Most recently he has turned his attention to iOS. Colin is CTO of <a href="http://www.shinobicontrols.com/" sl-processed="1">ShinobiControls</a>, creators of charts, grids and other powerful iOS controls. <br>
+<br>
+You can check out their app, <a href="https://itunes.apple.com/gb/app/shinobiplay/id545634307?mt=8" sl-processed="1">ShinobiPlay</a>, in the App Store.</p>	
+							</div>
+											
+								<ul class="follow-links">
+									<li class="twitter"><a href="http://www.twitter.com/@ColinEberhardt" target="_block" sl-processed="1">Follow Colin Eberhardt on Twitter</a></li>
+								</ul>
+								   				</div>
+   				<section id="comments">
+   					<div id="comment-login-module"><form method="post" action="http://www.raywenderlich.com/wp-content/themes/raywenderlich/bridgeapi/phpbb3/login-user.php"><input type="hidden" name="returnurl" value="http://www.raywenderlich.com/99473/introducing-react-native-building-apps-javascript"><div class="comment-area"><h2>Add a Comment</h2><p class="login-text">You need to login to make a comment. If you do not have an account, you can <a href="http://www.raywenderlich.com/login?section=new-account&returnurl=http://www.raywenderlich.com/wp-content/themes/raywenderlich/templates/comment_login_area.php?topicId=21428&forumId=20&pageNumber=1&returnURL=http%3A%2F%2Fwww.raywenderlich.com%2F99473%2Fintroducing-react-native-building-apps-javascript&_=1433753424026" sl-processed="1">create one over here</a></p>Username: <input type="text" name="username" id="username" size="40"> &nbsp;&nbsp;&nbsp; Password: <input type="password" name="password" id="password" size="40"> &nbsp;&nbsp;&nbsp; <input type="submit" value="Log In" name="login" class="RWButton"> <input type="hidden" name="redirect" value="http://www.raywenderlich.com/wp-content/themes/raywenderlich/templates/comment_login_area.php?topicId=21428&amp;forumId=20&amp;pageNumber=1&amp;returnURL=http%3A%2F%2Fwww.raywenderlich.com%2F99473%2Fintroducing-react-native-building-apps-javascript&amp;_=1433753424026#comments"><input type="hidden" name="phpbb_login_box" value="false"><p class="login-text">You can view the discussion in the forum <a href="http://www.raywenderlich.com/forums/viewtopic.php?f=20&t=21428" sl-processed="1">over here</a></p></div></form></div>
+<script>
+	jQuery(".comment-area").css("display", "none");
+	jQuery.ajax({
+		type : "GET",
+		data : { "topicId" : 21428, "forumId" : 20, "pageNumber" : 1, "returnURL" : "http://www.raywenderlich.com/99473/introducing-react-native-building-apps-javascript" },
+		url : "http://www.raywenderlich.com/wp-content/themes/raywenderlich/templates/comment_login_area.php",
+		cache : false,
+	}).done(function(html) {
+		jQuery("#comment-login-module").html(html);	
+		console.log(html);
+	});
+</script>
+	<div id="article-comments" style="margin-top:20px;"><h2 id="user-comments">User Comments</h2><h2 id="comment-count">50 Comments</h2>		<div class="comment-pages top-pages"> 
+			[ <a href="http://www.raywenderlich.com/99473/introducing-react-native-building-apps-javascript?pn=1#comments" sl-processed="1">1</a> , <a href="http://www.raywenderlich.com/99473/introducing-react-native-building-apps-javascript?pn=2#comments" sl-processed="1">2</a> , <a href="http://www.raywenderlich.com/99473/introducing-react-native-building-apps-javascript?pn=3#comments" sl-processed="1">3</a> , <span>4</span> ]			</div>
+	
+	<ul id="user-comment-list" style="padding: 0 28px 0 0;">
+		<li><div class="comment">All of you who has the issue that the house image is not loading. I found out how to fix it. <br>
+Anytime you change some asset with Xcode I recommend to do a Clean (CMD + SHIFT + K), Build (CMD+B), Run.(CMD+R)<br>
+<br>
+Hope that helps.<br>
+Ran.<img src="./Introducing React Native  Building Apps with JavaScript_files/comment-quote@2x.png" width="22" height="12" class="quote-arrow"></div><a href="http://www.raywenderlich.com/u/ranyefet" sl-processed="1"><img src="./Introducing React Native  Building Apps with JavaScript_files/d82151221c8cfb69159ad45f797e6896" alt="" width="100" height="100" data-site-url="http://www.raywenderlich.com/wp-content/themes/raywenderlich" class="user-avatar gravatar"></a><span class="author-details"><a href="http://www.raywenderlich.com/u/ranyefet" sl-processed="1">ranyefet</a> <span class="post-date">on May 7, 2015, 9:14 AM</span></span></li><li><div class="comment">Hi  Colin Eberhardt,<br>
+<br>
+This tutorial is absolutely fantastic, thank you. However I have ran into a small issue.<br>
+<br>
+When pushing to the navigator when switching views. Surely the constructor for that class will only ever fire once? When you navigate back and forth between views and change your input text to another location. The Search results page does not update because the constructor no longer fires. Can you please shed some light on this? The only way I can resolve this moving the constructor code into the render method. However I do not think this is the best solution.<img src="./Introducing React Native  Building Apps with JavaScript_files/comment-quote@2x.png" width="22" height="12" class="quote-arrow"></div><a href="http://www.raywenderlich.com/u/nigelm" sl-processed="1"><img src="./Introducing React Native  Building Apps with JavaScript_files/32d60eac5fe2fba74bdd5d6de7d6546b" alt="" width="100" height="100" data-site-url="http://www.raywenderlich.com/wp-content/themes/raywenderlich" class="user-avatar gravatar"></a><span class="author-details"><a href="http://www.raywenderlich.com/u/nigelm" sl-processed="1">nigelm</a> <span class="post-date">on May 7, 2015, 11:00 AM</span></span></li><li><div class="comment">Thank you for the tutorial.. Would love to see some more advanced developments done with React Native<img src="./Introducing React Native  Building Apps with JavaScript_files/comment-quote@2x.png" width="22" height="12" class="quote-arrow"></div><a href="http://www.raywenderlich.com/u/cipri" sl-processed="1"><img src="./Introducing React Native  Building Apps with JavaScript_files/eb9a76bb2d053347232d64b0f2606074" alt="" width="100" height="100" data-site-url="http://www.raywenderlich.com/wp-content/themes/raywenderlich" class="user-avatar gravatar"></a><span class="author-details"><a href="http://www.raywenderlich.com/u/cipri" sl-processed="1">cipri</a> <span class="post-date">on June 1, 2015, 2:37 AM</span></span></li><li><div class="comment">This is an amazing tutorial, I hope to see more React Native material in the future! Thank you!<img src="./Introducing React Native  Building Apps with JavaScript_files/comment-quote@2x.png" width="22" height="12" class="quote-arrow"></div><a href="http://www.raywenderlich.com/u/dabit3" sl-processed="1"><img src="./Introducing React Native  Building Apps with JavaScript_files/dd47498503c755ffb2dd760de889fcc5" alt="" width="100" height="100" data-site-url="http://www.raywenderlich.com/wp-content/themes/raywenderlich" class="user-avatar gravatar"></a><span class="author-details"><a href="http://www.raywenderlich.com/u/dabit3" sl-processed="1">dabit3</a> <span class="post-date">on June 5, 2015, 1:24 PM</span></span></li><li><div class="comment">Great tutorial! I loved it. Thank you for al the links to other pages!, helped me a lot to understand a lot of stuff.<br>
+<br>
+I hope there are more react-native tutorials soon.<img src="./Introducing React Native  Building Apps with JavaScript_files/comment-quote@2x.png" width="22" height="12" class="quote-arrow"></div><a href="http://www.raywenderlich.com/u/ghar" sl-processed="1"><img src="./Introducing React Native  Building Apps with JavaScript_files/b5dc6e948cb07eb2f1e64299b4ac4e02" alt="" width="100" height="100" data-site-url="http://www.raywenderlich.com/wp-content/themes/raywenderlich" class="user-avatar gravatar"></a><span class="author-details"><a href="http://www.raywenderlich.com/u/ghar" sl-processed="1">ghar</a> <span class="post-date">on June 7, 2015, 7:34 PM</span></span></li>	</ul>
+	<div class="comment-pages bottom-pages">[ <a href="http://www.raywenderlich.com/99473/introducing-react-native-building-apps-javascript?pn=1#comments" sl-processed="1">1</a> , <a href="http://www.raywenderlich.com/99473/introducing-react-native-building-apps-javascript?pn=2#comments" sl-processed="1">2</a> , <a href="http://www.raywenderlich.com/99473/introducing-react-native-building-apps-javascript?pn=3#comments" sl-processed="1">3</a> , <span>4</span> ]</div></div>
+	<script type="text/javascript">
+		var razewareConfig = {
+			pagingAmount : 15,
+			topic_id : 21428,
+			themeUrl: '/wp-content/themes/raywenderlich',
+			non: 'asdf,'
+		};
+		jQuery.ajax({
+			type : "GET",
+				data : { "topic_id" : 21428, "curl" : "http://www.raywenderlich.com/99473/introducing-react-native-building-apps-javascript" },
+				url : "http://www.raywenderlich.com/wp-content/themes/raywenderlich/templates/comment_section.php",
+				cache : false,
+			}).done(function(html) {
+				jQuery("#article-comments").html(html);	
+				jQuery("#comments .comment-pages.top-pages a").each(function(index) {	
+					jQuery(this).click(function() {
+						jQuery("#pageNumber").attr("value", index+1);
+						razewareComments.getComments(jQuery(this).text());
+						return false;
+					});
+				});
+				jQuery("#comments .comment-pages.bottom-pages a").each(function(index) {	
+					jQuery(this).click(function() {
+						jQuery("#pageNumber").attr("value", index+1);
+						razewareComments.getComments(jQuery(this).text());
+						var target = this.hash,
+					    $target = jQuery(target);
+					    jQuery('html, body').stop().animate({
+					        'scrollTop': $target.offset().top
+					    }, 900, 'swing', function () {
+					        window.location.hash = target;
+					    });
+						return false;
+					});
+				});
+			});
+		
+	</script>
+   				</section>
+			</div>
+		</div>
+	</div>
+	<section id="secondary">
+	<h1 id="other-items-of-interest">Other Items of Interest</h1>
+	<section id="newsletter-signup" class="rw-module">
+		<header>
+			<h1>Ray's Monthly Newsletter</h1>
+		</header>
+		<div>
+			<img src="./Introducing React Native  Building Apps with JavaScript_files/starter-kit@2x.png" width="109" height="139">
+			<p>Sign up to receive a monthly newsletter with my favorite dev links, and receive a <em>free epic-length tutorial</em> as a bonus!</p>
+			<img src="">
+			<form novalidate="" target="_blank" class="validate" name="mc-embedded-subscribe-form" id="mc-embedded-subscribe-form" method="post" action="http://raywenderlich.us1.list-manage.com/subscribe/post?u=1bc8e630b1599df629818e59b&id=83b6edc87f">
+				<input type="text" id="mce-NAME" class="required" name="NAME" value="" placeholder="Your full name">
+				<input type="email" id="mce-EMAIL" class="required email" name="EMAIL" value="" placeholder="Your best email">
+				<input type="submit" class="button" id="mc-embedded-subscribe" name="subscribe" value="Sign Up!">
+			</form>
+		</div>
+	</section>
+	<section id="site-ads">
+		<h1>Advertise with Us!</h1>
+		<!-- BuySellAds.com Ad Code -->
+		<!-- End BuySellAds.com Ad Code -->
+		<!-- BuySellAds Zone Code -->
+	        
+	        
+	        <div id="bsap_1274837" class="bsap bsap_1274837" data-serve="CV7IEKV">
+<style type="text/css">
+div.bsap_1274837{width:100%;display:block;}div.bsap_1274837 a{width:300px;}div.bsap_1274837 a img{padding:0;}div.bsap_1274837 a em{font-style:normal;}div.bsap_1274837 a{display:block;font-size:11px;color:#888;font-family:verdana,sans-serif;margin:0;text-align:center;text-decoration:none;overflow:hidden;float:left;margin-bottom:10px;}
+div.bsap_1274837 img{border:0;clear:right;}
+div.bsap_1274837 a.adhere{color:#666;font-weight:bold;font-size:12px;border:1px solid #ccc;background:#e7e7e7;text-align:center;}
+div.bsap_1274837 a.adhere:hover{border:1px solid #999;background:#ddd;color:#333;}div.bsap_1274837 a{line-height:100%;}div.bsap_1274837 a.adhere{width:300px;height:250px;line-height:2000%;}html>body div.bsap_1274837 a.adhere{width:298px;height:248px;}div.bsap_1274837 img.s{height:0;width:0;}div.bsap_1274837{line-height:9px;}div.bsap_1274837 .bsap_adhere a{height:19px !important;width:298px !important;font-size:10px;background:#f1f1f1;border:1px solid #e1e1e1;border-top:none;border-radius: 0 0 2px 2px;line-height:16px;}.bsap_backfillframe{border:0;}
+</style>
+<iframe width="300" height="250" id="ad_1274837_backfill2_frame" src="./Introducing React Native  Building Apps with JavaScript_files/raw_dbe6967a82d17dc36ab454e930924774.html" frameborder="0" class="bsap_adframe" scrolling="no"></iframe>
+
+<script type="text/javascript" id="auto_2" class="ignoreme"> if (typeof(_bsap_serving_callback) !== 'undefined') _bsap_serving_callback(20055, 'CV7IEKV', ''); </script>
+<script type="text/javascript" id="auto_3" class="ignoreme"> if (typeof(BSACallback) !== 'undefined') BSACallback(); </script></div>
+	        <!-- End BuySellAds Zone Code -->
+	                       
+	        <!-- BuySellAds.com Zone Code -->
+	        <div id="smallads">
+	        	<div id="bsap_1260352" class="bsap bsap_1260352" data-serve="CV7I55V">
+<style type="text/css">
+div.bsap_1260352{width:100%;display:block;}div.bsap_1260352 a{width:125px;}div.bsap_1260352 a img{padding:0;}div.bsap_1260352 a em{font-style:normal;}div.bsap_1260352 a{display:block;font-size:11px;color:#888;font-family:verdana,sans-serif;margin:0;text-align:center;text-decoration:none;overflow:hidden;float:left;}
+div.bsap_1260352 img{border:0;clear:right; }
+div.bsap_1260352 a.adhere{color:#666;font-weight:bold;font-size:12px;border:1px solid #ccc;background:#e7e7e7;text-align:center;}
+div.bsap_1260352 a.adhere:hover{border:1px solid #999;background:#ddd;color:#333;}div.bsap_1260352 a{line-height:100%;}div.bsap_1260352 a.adhere{width:125px;height:125px;line-height:1000%;}html>body div.bsap_1260352 a.adhere{width:123px;height:123px;}div.bsap_1260352 img.s{height:0;width:0;}
+</style>
+<a href="http://srv.buysellads.com/ads/click/x/GTND423ICKSIV53JCAYLYKQWCK7I5K7NCE7DCZ3JCE7IC27YC6BDT5QKC6BDCK7UCWYDVK3EHJNCLSIZ" class="ad0 odd " title="MacStadium Dedicated Servers" id="bsa_5447140" target="_blank" rel="nofollow" sl-processed="1">
+<img src="./Introducing React Native  Building Apps with JavaScript_files/258177-1423855349.jpg" width="125" height="125" alt=""></a><a href="http://srv.buysellads.com/ads/click/x/GTND423ICKSIV53JCAYLYKQWCK7I52Q7CVYDEZ3JCE7IC27WCKADEKJKC6BDCK7UCWYDVK3EHJNCLSIZ" class="ad1  even" title="Get Reviews and Ratings for your iOS and Android apps from engaged users- Trusted by 1000&#39;s of Developers." id="bsa_5369881" target="_blank" rel="nofollow" sl-processed="1">
+<img src="./Introducing React Native  Building Apps with JavaScript_files/253662-1421074003.png" width="125" height="125" alt=""></a><!-- no ad --><a href="http://srv.buysellads.com/ads/click/x/GTND423ICKSIV53JCAYLYKQWCK7I52Q7CVYITZ3JCE7IC27YC6YI523KC6BDCK7UCWYDVK3EHJNCLSIZ" class="ad3 odd " title="Get Real User Feedback on Your App. Test Icons, Screenshots and More.- Trusted by 1000&#39;s of Developers." id="bsa_5415538" target="_blank" rel="nofollow" sl-processed="1">
+<img src="./Introducing React Native  Building Apps with JavaScript_files/256626-1422900238.png" width="125" height="125" alt=""></a><a href="http://srv.buysellads.com/ads/click/x/GTND423ICKSIV53JCAYLYKQWCK7I553LFT7ICZ3JCE7IC27NCW7IPKJKC6BDCK7UCWYDVK3EHJNCLSIZ" class="ad4  even" title="Increase Downloads for Your App with Appsites Landing Pages" id="bsa_5737686" target="_blank" rel="nofollow" sl-processed="1">
+<img src="./Introducing React Native  Building Apps with JavaScript_files/269576-1431553115.png" width="125" height="125" alt=""></a><a href="http://srv.buysellads.com/ads/click/x/GTND423ICKSIV53JCAYLYKQWCK7I52Q7CVYICZ3JCE7IC27NCKBI5K3KC6BDCK7UCWYDVK3EHJNCLSIZ" class="ad5 odd " title="iOS Starter Kits and Development Tutorials" id="bsa_2489343" target="_blank" rel="nofollow" sl-processed="1">
+<img src="./Introducing React Native  Building Apps with JavaScript_files/199003-1385605563.jpg" width="125" height="125" alt=""></a>
+<script type="text/javascript" id="auto_4" class="ignoreme"> if (typeof(BSACallback) !== 'undefined') BSACallback(); </script></div>
+	        	<div style="clear:both"></div>
+	        </div>
+	        <div id="razeware_ads">
+	        	<a href="https://itunes.apple.com/us/app/math-ninja-hd/id370144476?mt=8&uo=4&at=11ld4k" target="_blank" class="razewareads" sl-processed="1"><img src="./Introducing React Native  Building Apps with JavaScript_files/MathNinja_125.gif" width="125" height="125" style="margin-left:15px"></a>
+	        	<!--<a href="https://itunes.apple.com/us/app/instant-poetry-2/id925723441?ls=1&mt=8&uo=8&at=11ld4k" target="_blank" class="razewareads"><img src="http://cdn1.raywenderlich.com/downloads/InstantPoetry-ad-125x125.gif" width="125" height="125" style="margin-left:15px"></a>-->
+	        	<a href="https://www.udemy.com/ios-osx-games-from-start-to-store/?couponCode=RW001" target="_blank" class="razewareads" sl-processed="1"><img src="./Introducing React Native  Building Apps with JavaScript_files/NeilNorthSpriteKit.png" width="125" height="125" style="margin-left:15px"></a>
+	        	
+	        </div>
+			 
+	        <!-- End BuySellAds.com Zone Code -->
+	        <a href="http://www.raywenderlich.com/advertise" class="rw-button2" id="advertise-with-us" sl-processed="1">Advertise Here!</a>
+	</section>
+
+	<!--	
+	<section id="rwdevcon" class="rw-module">
+	<a href="http://www.rwdevcon.com"><img src="http://cdn1.raywenderlich.com/downloads/rwdevcon-website-ad.jpg"/></a>
+	</section>
+	//-->
+
+	<!--<section id="site-poll" class="rw-module">
+		<header>
+			<h1>Vote for Our Next Tutorial!</h1>
+		</header>
+						<div id="recent-posts" class="sidebar-entry">
+	            <p>Every week, we alternate between Gaming and Non-Gaming tutorial votes.  This week: Gaming!</p>
+	            <ul>
+	                <div id="polls-92" class="wp-polls">
+	<form id="polls_form_92" class="wp-polls-form" action="/index.php" method="post">
+		<p style="display: none;"><input type="hidden" id="poll_92_nonce" name="wp-polls-nonce" value="a6c258bce4" /></p>
+		<p style="display: none;"><input type="hidden" name="poll_id" value="92" /></p>
+		<div id="polls-92-ans" class="wp-polls-ans"><ul class="wp-polls-ul">
+		<li><input type="radio" id="poll-answer-565" name="poll_92" value="565" /> <label class="poll-answer-label" for="poll-answer-565">How To Make a Game Like Candy Crush with Unity 2D</label></li>
+		<li><input type="radio" id="poll-answer-566" name="poll_92" value="566" /> <label class="poll-answer-label" for="poll-answer-566">How To Make a Simple 3D Game with Scene Kit</label></li>
+		<li><input type="radio" id="poll-answer-567" name="poll_92" value="567" /> <label class="poll-answer-label" for="poll-answer-567">Adding iAds to a Sprite Kit Game</label></li>
+		<li><input type="radio" id="poll-answer-568" name="poll_92" value="568" /> <label class="poll-answer-label" for="poll-answer-568">Adding In-App Purchases into a Sprite Kit Game</label></li>
+		<li><input type="radio" id="poll-answer-569" name="poll_92" value="569" /> <label class="poll-answer-label" for="poll-answer-569">Adding In-App Purchases into a Unity 2D Game</label></li>
+		<li><input type="radio" id="poll-answer-570" name="poll_92" value="570" /> <label class="poll-answer-label" for="poll-answer-570">Updated Tutorial for Cocos2D-X</label></li>
+		</ul><p><input type="button" id="vote" name="vote" value="CAST YOUR VOTE" class="Buttons" onclick="poll_vote(92);" /></p></div>
+	</form>
+</div>
+<div id="polls-92-loading" class="wp-polls-loading"><img src="http://www.raywenderlich.com/wp-content/plugins/wp-polls/images/loading.gif" width="16" height="16" alt="Loading ..." title="Loading ..." class="wp-polls-image" />&nbsp;Loading ...</div>
+	            </ul>
+	
+	    		<p><em>Last week's winner</em>:<span class="next-weeks-tutorial"> Core Data Sync.</span>				<p class="suggest-a-tutorial"><a href="http://www.raywenderlich.com/forums/viewtopic.php?f=2&t=284">Suggest a Tutorial</a> - <a href="http://www.raywenderlich.com/tutorial-vote-results">Past Results</a></p>
+	        </div>
+	        	
+	</section>-->
+		
+	<!--<section id="site-poll" class="rw-module">
+		<header>
+			<h1>Hang Out With Us!</h1>
+		</header>			
+			<div class="sidebar-entry">
+	            <p>Every month, we have a free live Tech Talk - come hang out with us!</p><br/>	            
+	            <p>Coming up in March: View Debugging with Xcode and Reveal.</p>
+	            <a href="https://plus.google.com/u/0/events/ck7m53i0ed07lj4mlc5jaqq0nt0" class="rw-button2">Sign Up - March</a>	
+	        </div>	        
+	</section>-->	
+	
+	<!--<section id="site-poll" class="rw-module">
+		<header>
+			<h1>Our Next Book!</h1>
+		</header>
+						<div id="recent-posts" class="sidebar-entry">
+	            <p>We are considering writing a new book on game programming with Sprite Kit and Swift, more tailored toward intermediate or advanced readers.</p>
+	            <p>Would this be something you'd be interested in, and if so which option would you prefer?</p>
+	            <ul>
+	                <div id="polls-93" class="wp-polls">
+	<form id="polls_form_93" class="wp-polls-form" action="/index.php" method="post">
+		<p style="display: none;"><input type="hidden" id="poll_93_nonce" name="wp-polls-nonce" value="45e5892e19" /></p>
+		<p style="display: none;"><input type="hidden" name="poll_id" value="93" /></p>
+		<div id="polls-93-ans" class="wp-polls-ans"><ul class="wp-polls-ul">
+		<li><input type="radio" id="poll-answer-571" name="poll_93" value="571" /> <label class="poll-answer-label" for="poll-answer-571">Game Programming Recipes in Sprite Kit and Swift</label></li>
+		<li><input type="radio" id="poll-answer-572" name="poll_93" value="572" /> <label class="poll-answer-label" for="poll-answer-572">AI Programming for Games in Sprite Kit and Swift</label></li>
+		<li><input type="radio" id="poll-answer-573" name="poll_93" value="573" /> <label class="poll-answer-label" for="poll-answer-573">Neither - Not a game programmer</label></li>
+		<li><input type="radio" id="poll-answer-574" name="poll_93" value="574" /> <label class="poll-answer-label" for="poll-answer-574">Neither - Don't like Sprite Kit</label></li>
+		<li><input type="radio" id="poll-answer-575" name="poll_93" value="575" /> <label class="poll-answer-label" for="poll-answer-575">Neither - Don't like Swift</label></li>
+		<li><input type="radio" id="poll-answer-576" name="poll_93" value="576" /> <label class="poll-answer-label" for="poll-answer-576">Neither - Would prefer a different Sprite Kit/Swift book</label></li>
+		</ul><p><input type="button" id="vote" name="vote" value="CAST YOUR VOTE" class="Buttons" onclick="poll_vote(93);" /></p></div>
+	</form>
+</div>
+<div id="polls-93-loading" class="wp-polls-loading"><img src="http://www.raywenderlich.com/wp-content/plugins/wp-polls/images/loading.gif" width="16" height="16" alt="Loading ..." title="Loading ..." class="wp-polls-image" />&nbsp;Loading ...</div>
+	            </ul>		    		
+	        </div>
+	        	
+	</section>-->
+	
+	<section id="our-books" class="rw-module">
+		<header>
+			<h1>Our Books</h1>
+		</header>
+		<div>
+			<ul class="books">
+				<li><a href="http://www.raywenderlich.com/store/platformer-game-starter-kit" sl-processed="1"><img src="./Introducing React Native  Building Apps with JavaScript_files/pgsk@2x.png" width="110" height="142"></a></li><li><a href="http://www.raywenderlich.com/store/ios-games-by-tutorials" sl-processed="1"><img src="./Introducing React Native  Building Apps with JavaScript_files/skt@2x.png" width="110" height="142"></a></li><li><a href="http://www.raywenderlich.com/store/ios-apprentice" sl-processed="1"><img src="./Introducing React Native  Building Apps with JavaScript_files/ia1234@2x.png" width="110" height="142"></a></li><li><a href="http://www.raywenderlich.com/store/watchkit-by-tutorials" sl-processed="1"><img src="./Introducing React Native  Building Apps with JavaScript_files/awt@2x.png" width="110" height="142"></a></li><li><a href="http://www.raywenderlich.com/store/swift-by-tutorials" sl-processed="1"><img src="./Introducing React Native  Building Apps with JavaScript_files/swt@2x.png" width="110" height="142"></a></li><li><a href="http://www.raywenderlich.com/store/space-game-starter-kit-2" sl-processed="1"><img src="./Introducing React Native  Building Apps with JavaScript_files/sgsk@2x.png" width="110" height="142"></a></li><li><a href="http://www.raywenderlich.com/store/ios-6-by-tutorials" sl-processed="1"><img src="./Introducing React Native  Building Apps with JavaScript_files/i6t@2x.png" width="110" height="142"></a></li><li><a href="http://www.raywenderlich.com/store/core-data-by-tutorials" sl-processed="1"><img src="./Introducing React Native  Building Apps with JavaScript_files/cdt@2x.png" width="110" height="142"></a></li><li><a href="http://www.raywenderlich.com/store/ios-animations-by-tutorials" sl-processed="1"><img src="./Introducing React Native  Building Apps with JavaScript_files/iat@2x.png" width="110" height="142"></a></li><li><a href="http://www.raywenderlich.com/store/ios-7-by-tutorials" sl-processed="1"><img src="./Introducing React Native  Building Apps with JavaScript_files/i7t@2x.png" width="110" height="142"></a></li><li><a href="http://www.raywenderlich.com/store/ios-8-by-tutorials" sl-processed="1"><img src="./Introducing React Native  Building Apps with JavaScript_files/i8t@2x.png" width="110" height="142"></a></li><li><a href="http://www.raywenderlich.com/store/beat-em-up-game-starter-kit" sl-processed="1"><img src="./Introducing React Native  Building Apps with JavaScript_files/bgsk@2x.png" width="110" height="142"></a></li>			</ul>
+		</div>
+	</section>
+	
+	
+	<section id="tutorial-team" class="rw-module">
+		<header>
+			<h1>Our Team</h1>
+		</header>
+		<div>
+			<h2>Tutorial Team</h2>
+			<ul><li><a href="http://www.raywenderlich.com/about#ahafizji" sl-processed="1"><img src="./Introducing React Native  Building Apps with JavaScript_files/2017.jpg" width="100" height="100" class="user-avatar"></a></li><li><a href="http://www.raywenderlich.com/about#mhollemans" sl-processed="1"><img src="./Introducing React Native  Building Apps with JavaScript_files/492.jpg" width="100" height="100" class="user-avatar"></a></li><li><a href="http://www.raywenderlich.com/about#tdahbura" sl-processed="1"><img src="./Introducing React Native  Building Apps with JavaScript_files/714.jpg" width="100" height="100" class="user-avatar"></a></li></ul><p>... <a href="http://www.raywenderlich.com/about#abt_tutorial-team" sl-processed="1">13 total!</a></p><h2>Update Team</h2><ul><li><a href="http://www.raywenderlich.com/about#gqu" sl-processed="1"><img src="./Introducing React Native  Building Apps with JavaScript_files/58366.png" width="100" height="100" class="user-avatar"></a></li><li><a href="http://www.raywenderlich.com/about#ghauber" sl-processed="1"><img src="./Introducing React Native  Building Apps with JavaScript_files/41591.png" width="100" height="100" class="user-avatar"></a></li><li><a href="http://www.raywenderlich.com/about#bruud" sl-processed="1"><img src="./Introducing React Native  Building Apps with JavaScript_files/35498.jpg" width="100" height="100" class="user-avatar"></a></li></ul><p>... <a href="http://www.raywenderlich.com/about#abt_update-team" sl-processed="1">4 total!</a></p><h2>Editorial Team</h2><ul><li><a href="http://www.raywenderlich.com/about#cbelanger" sl-processed="1"><img src="./Introducing React Native  Building Apps with JavaScript_files/15196.jpg" width="100" height="100" class="user-avatar"></a></li><li><a href="http://www.raywenderlich.com/about#bphillips" sl-processed="1"><img src="./Introducing React Native  Building Apps with JavaScript_files/4320.jpg" width="100" height="100" class="user-avatar"></a></li><li><a href="http://www.raywenderlich.com/about#ffarook" sl-processed="1"><img src="./Introducing React Native  Building Apps with JavaScript_files/1407.png" width="100" height="100" class="user-avatar"></a></li></ul><p>... <a href="http://www.raywenderlich.com/about#abt_editorial-team" sl-processed="1">5 total!</a></p><h2>Code Team</h2><ul><li><a href="http://www.raywenderlich.com/about#otherox" sl-processed="1"><img src="./Introducing React Native  Building Apps with JavaScript_files/20441.jpg" width="100" height="100" class="user-avatar"></a></li><li><a href="http://www.raywenderlich.com/about#dgrandinetti" sl-processed="1"><img src="./Introducing React Native  Building Apps with JavaScript_files/40214.jpg" width="100" height="100" class="user-avatar"></a></li></ul><p>... <a href="http://www.raywenderlich.com/about#abt_code-team" sl-processed="1">2 total!</a></p><h2>Subject Matter Experts</h2><ul><li><a href="http://www.raywenderlich.com/about#aeberbach" sl-processed="1"><img src="./Introducing React Native  Building Apps with JavaScript_files/384.png" width="100" height="100" class="user-avatar"></a></li><li><a href="http://www.raywenderlich.com/about#mvalenzuela" sl-processed="1"><img src="./Introducing React Native  Building Apps with JavaScript_files/1217.png" width="100" height="100" class="user-avatar"></a></li><li><a href="http://www.raywenderlich.com/about#rbelton" sl-processed="1"><img src="./Introducing React Native  Building Apps with JavaScript_files/10269.jpg" width="100" height="100" class="user-avatar"></a></li></ul><p>... <a href="http://www.raywenderlich.com/about#abt_subject-matter-experts" sl-processed="1">4 total!</a></p>		</div>
+	</section>
+</section>
+	</div></div>
+			<footer id="colophon" class="clearfix">
+		<h1 id="about-raywenderlich">About RayWenderlich.com</h1><div class="wrapper clearfix"><div id="css-table-enclosure"><div class="forum-posts-sep footer-separator first table-col"></div><div class="forum-posts table-col"><h2>Recent Forum Posts</h2><ul class="comments"><li><img src="./Introducing React Native  Building Apps with JavaScript_files/6da82f92b26894b4ec3883fc03660219" alt="" width="100" height="100" data-site-url="http://cdn1.raywenderlich.com/wp-content/themes/raywenderlich" class="user-avatar gravatar"><div>I am trying to get my character to move with a swipe. I have been frantically searching for  ...<br> in <a href="http://www.raywenderlich.com/forums/viewtopic.php?f=2&t=22243" sl-processed="1">I need help!</a></div></li><li><img src="./Introducing React Native  Building Apps with JavaScript_files/9c8748c58d56003a92ba522af6e32d0f" alt="" width="100" height="100" data-site-url="http://cdn1.raywenderlich.com/wp-content/themes/raywenderlich" class="user-avatar gravatar"><div>I'm having a few problems with the Zombie Conga project, and I was wondering if anybody could help  ...<br> in <a href="http://www.raywenderlich.com/forums/viewtopic.php?f=38&t=22242" sl-processed="1">Zombie Conga Chapters 1 and 2 problems</a></div></li></ul><a href="http://www.raywenderlich.com/forums/" class="RWButton" sl-processed="1">VISIT THE FORUM »</a></div><div class="facebook-page-sep footer-separator table-col"></div><div class="facebook-page table-col"><h2>Like Us on Facebook</h2><div class="like-box"><img src="./Introducing React Native  Building Apps with JavaScript_files/small-logo@2x.png" width="50" height="50" id="small-logo"><h3>Ray Wenderlich</h3>							<iframe src="./Introducing React Native  Building Apps with JavaScript_files/saved_resource.html" allowtransparency="true" frameborder="0" scrolling="no" style="width: 50px; height: 20px;"></iframe>
+							</div>						    <p class="page-like-count"><span id="like-count">0</span> people like <a href="https://www.facebook.com/raywenderlich" target="_blank" sl-processed="1">Ray Wenderlich</a></p>
+							<div class="fb-window">
+								<div class="fb-like-box fb_iframe_widget" data-href="https://www.facebook.com/pages/raywenderlichcom/516533855059578" data-width="292" data-show-faces="true" data-colorscheme="dark" data-stream="false" data-header="false" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=&amp;color_scheme=dark&amp;container_width=280&amp;header=false&amp;href=https%3A%2F%2Fwww.facebook.com%2Fpages%2Fraywenderlichcom%2F516533855059578&amp;locale=en_US&amp;sdk=joey&amp;show_faces=true&amp;stream=false&amp;width=292"><span style="vertical-align: top; width: 0px; height: 0px; overflow: hidden;"><iframe name="f2ba48a69" width="292px" height="1000px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:like_box Facebook Social Plugin" src="./Introducing React Native  Building Apps with JavaScript_files/saved_resource.html" style="border: none; visibility: visible; width: 0px; height: 0px;"></iframe></span></div>
+							</div>
+						</div><div class="latest-tweets-sep footer-separator table-col"></div><div class="latest-tweets table-col"><h2>Our Recent Tweets</h2><ul id="rw-tweet-list"><li><a href="http://twitter.com/TJShae" target="_blank" class="tweet-author" sl-processed="1"><img src="http://pbs.twimg.com/profile_images/568749131724648448/N9WfJw_C_normal.png" alt="TJShae" width="48" height="48"></a><div class="tweet-content"><img src="./Introducing React Native  Building Apps with JavaScript_files/tweet-arrow@2x.png" class="tweet-arrow" width="8" height="14">Power breakfast before my flight to San Fran <a href="https://twitter.com/search?q=%23WWDC&src=hash" target="_blank" sl-processed="1">#WWDC</a> <a href="http://t.co/2LZWKvy8Jl" target="_blank" sl-processed="1">http://t.co/2LZWKvy8Jl</a><br><a href="http://twitter.com/TJShae" target="_blank" sl-processed="1">Toby Stephens</a> -<span class="tweet-time">25 minutes ago</span></div></li><li><a href="http://twitter.com/RuiAAPeres" target="_blank" class="tweet-author" sl-processed="1"><img src="http://pbs.twimg.com/profile_images/586985078783344640/XdjY61Eh_normal.jpg" alt="RuiAAPeres" width="48" height="48"></a><div class="tweet-content"><img src="./Introducing React Native  Building Apps with JavaScript_files/tweet-arrow@2x.png" class="tweet-arrow" width="8" height="14"><a href="http://twitter.com/richturton" target="_blank" sl-processed="1">@richturton</a> not bad...<br><a href="http://twitter.com/RuiAAPeres" target="_blank" sl-processed="1">R. Peres</a> -<span class="tweet-time">40 minutes ago</span></div></li></ul><a href="https://twitter.com/rwenderlich/lists/raywenderlich-com-team" class="RWButton" sl-processed="1">FOLLOW US ON TWITTER</a></div><div class="footer-separator last table-col"></div></div></div><div class="navigation-band"><div class="wrapper"><div class="left-col">© 2015 <a href="http://www.razeware.com/" sl-processed="1">Razeware LLC. All rights reserved.</a></div><div class="right-col"><ul><li><a href="http://www.raywenderlich.com/write-for-us" sl-processed="1">WRITE FOR US</a></li><li><a href="http://www.raywenderlich.com/faq" sl-processed="1">FAQ</a></li><li><a href="http://www.raywenderlich.com/advertise" sl-processed="1">ADVERTISE</a></li><li><a href="http://www.raywenderlich.com/contact" sl-processed="1">CONTACT</a></li></ul></div></div></div><div id="gearbox"><div class="wrapper"><div id="left-gears"><img src="./Introducing React Native  Building Apps with JavaScript_files/gear_small@2x.png" width="56" height="56" class="left-gear clockwise-motion small-gear gear" id="gear1"><img src="./Introducing React Native  Building Apps with JavaScript_files/gear_medium@2x.png" width="66" height="66" class="left-gear counter-clockwise-motion  medium-gear gear" id="gear2"><img src="./Introducing React Native  Building Apps with JavaScript_files/gear_large@2x.png" width="96" height="96" class="left-gear clockwise-motion large-gear gear" id="gear3"><img src="./Introducing React Native  Building Apps with JavaScript_files/gear_medium@2x.png" width="67" height="67" class="left-gear counter-clockwise-motion medium-gear gear" id="gear4"></div><a href="http://www.raywenderlich.com/" id="footer-logo" sl-processed="1"><img src="./Introducing React Native  Building Apps with JavaScript_files/logo_stage5@2x.png" width="160" height="75" border="0" class="logo-sat"><img src="./Introducing React Native  Building Apps with JavaScript_files/logo_stage1@2x.png" width="160" height="75" border="0" class="logo">
+									</a><div id="right-gears"><img src="./Introducing React Native  Building Apps with JavaScript_files/gear_small@2x.png" width="51" height="50" class="right-gear clockwise-motion small-gear gear" id="gear5"><img src="./Introducing React Native  Building Apps with JavaScript_files/gear_medium@2x.png" width="67" height="67" class="right-gear counter-clockwise-motion  medium-gear gear" id="gear6"><img src="./Introducing React Native  Building Apps with JavaScript_files/gear_large@2x.png" width="96" height="96" class="right-gear clockwise-motion large-gear gear" id="gear7"><img src="./Introducing React Native  Building Apps with JavaScript_files/gear_medium@2x.png" width="67" height="67" class="right-gear counter-clockwise-motion  medium-gear gear" id="gear8"></div></div></div><footer><script type="text/javascript" src="./Introducing React Native  Building Apps with JavaScript_files/jquery.cookie.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        var count;
+        if ( !jQuery.cookie('wwsgd_visits') ) {
+            count = 1;
+        }
+        else {
+            count = parseInt(jQuery.cookie('wwsgd_visits'), 10) + 1;
+        }
+        jQuery.cookie('wwsgd_visits', count, { expires: 365, path: "/" });
+
+        if ( count <= 5 ) {
+            jQuery(".wwsgd").show();
+        }
+    });
+</script>
+<script type="text/javascript" src="http://platform.twitter.com/widgets.js?ver=1.1"></script>
+<script type="text/javascript" src="./Introducing React Native  Building Apps with JavaScript_files/jquery.form.min.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var _wpcf7 = {"loaderUrl":"http:\/\/www.raywenderlich.com\/wp-content\/plugins\/contact-form-7\/images\/ajax-loader.gif","sending":"Sending ...","cached":"1"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Introducing React Native  Building Apps with JavaScript_files/scripts.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var pollsL10n = {"ajax_url":"http:\/\/www.raywenderlich.com\/wp-admin\/admin-ajax.php","text_wait":"Your last request is still being processed. Please wait a while ...","text_valid":"Please choose a valid poll answer.","text_multiple":"Maximum number of choices allowed: ","show_loading":"1","show_fading":"1"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Introducing React Native  Building Apps with JavaScript_files/polls-js.js"></script>
+		
+		<script type="text/javascript">var _merchantSettings=_merchantSettings || [];_merchantSettings.push(['AT', '11ld4k']);(function(){var autolink=document.createElement('script');autolink.type='text/javascript';autolink.async=true; autolink.src='http://autolinkmaker.itunes.apple.com/js/itunes_autolinkmaker.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(autolink, s);})();</script>
+				<script>
+			if (jQuery.browser.msie) { jQuery("html").addClass("msie"); }
+			if (typeof window.chrome === "object") { jQuery("html").addClass("chrome"); }
+		</script>
+	
+
+
+
+<!-- Dynamic page generated in 1.092 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2015-06-07 04:13:04 -->
+
+<!-- Compression = gzip --></footer></footer><div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_http" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_http" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="./Introducing React Native  Building Apps with JavaScript_files/saved_resource.html" style="border: none;"></iframe><iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="./Introducing React Native  Building Apps with JavaScript_files/saved_resource.html" style="border: none;"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div></div><div class="swiftype-widget"><div class="autocomplete" style="position: absolute; z-index: 9999; top: 97px; left: 1020.109375px; width: 203px; display: none;"><ul></ul></div></div></body></html>

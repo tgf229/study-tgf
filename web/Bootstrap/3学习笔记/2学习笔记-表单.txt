@@ -1,0 +1,29 @@
+-表单
+<form>
+<form class="form-horizontal">	水平表单
+<from class="form-inline">	内联表单
+
+<input type="text" class="form-control" placeholder="输入用户名">	输入框input
+	input-lg input-sm	添加这两个class可让控件变大或变小
+<input class="form-control input-lg" id="disabledInput" type="text" placeholder="表单已被禁用，不可输入"		disabled>	禁用状态disabled
+<fieldset disabled></fieldset>	被fieldset包围起来的所有空件将无法使用
+<textarea class="form-control" rows="3">	文本域textarea
+
+<select class="form-control">	下拉选择select
+<select multiple class="form-control">	下拉多选的选择
+
+<div class="checkbox"><label><input type="checkbox" value="">记住密码</label></div>	复选框checkbox
+<div class="radio"><label><input type="radio">选项1</label></div>	单选radio
+<label class="checkbox-inline"> radio-inline	复选框和单选按钮水平排列
+
+-按钮
+<button class="btn"> class="btn btn-default" btn-primary btn-info btn-success btn-warning btn-danger		btn-link  按钮
+	btn-lg  btn-sm  btn-xs	添加这两个class可以让空间变大或变小或超小
+class="btn-block"	块状按钮(填满屏幕宽度)
+class="disabled"	禁用按钮
+
+-图片
+class="img-responsive"(响应式图) img-rounded(圆角图) img-circle(圆形图) img-thumbnail(缩略图)
+
+-小图标
+<span class="glyphicon glyphicon-search"></span> 图标大全http://getbootstrap.com/components/#glyphicons

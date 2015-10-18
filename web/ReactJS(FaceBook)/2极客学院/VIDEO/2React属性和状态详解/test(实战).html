@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test(实战)</title>
+	<script src="./react-0.13.2/react-0.13.2/build/react.js"></script>
+	<script src="./react-0.13.2/react-0.13.2/build/JSXTransformer.js"></script>
+</head>
+<body>
+	<script type="text/jsx">
+
+		var Content = React.createClass({
+			getInitialState:function(){
+				return{
+					inputText:"",
+				};
+			},
+
+			handleSubmit:function(){
+				console.log("REPLY TO: " + this.props.name + "\n" + this.state.inputText)
+			},
+
+			handleChange:function(event){
+				this.setState({inputText:event.target.value});
+			},
+
+			render:function(){
+				return(
+					<div>
+						<textarea onChange={this.handleChange} placeholder="please enter sth"></textarea>
+						<button onClick={this.handleSubmit}>Submit</button>
+					</div>
+				);
+			},
+		});
+
+		var Comment = React.createClass({
+			getInitialState:function(){
+				return{
+					names:["tu","gao","feng"],
+					selectName:"tu",
+				};
+			},
+
+			handleSelect:function(event){
+				this.setState({selectName:event.target.value});
+			},
+
+			render:function(){
+				var options = [];
+				console.log(this.state.names)
+				for(var i in this.state.names)
+				{
+					options.push(<option value={this.state.names[i]}>{this.state.names[i]}</option>)
+				}
+				return(
+					<div>
+						<select onChange={this.handleSelect}>
+							{options}
+						</select>
+						<Content name={this.state.selectName}></Content>
+					</div>
+				);
+			},
+		});
+
+		React.render(<Comment/>,document.body);
+	</script>
+</body>
+</html>

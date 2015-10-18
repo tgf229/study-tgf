@@ -1,0 +1,6 @@
+官方	 http://facebook.github.io/react
+
+论坛	http://www.react-china.org/
+
+教程	http://www.ruanyifeng.com/blog/2015/03/react.html
+	http://piliyu.com/

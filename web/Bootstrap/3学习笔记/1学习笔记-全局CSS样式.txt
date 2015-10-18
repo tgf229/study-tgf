@@ -1,0 +1,47 @@
+-栅格系统
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">.col-md-4</div>
+    <div class="col-md-2 col-md-offset-4">列向右移动四列的间距</div>
+    <div class="col-md-2">.col-md-2</div>
+  </div>
+</div>
+container固定宽度  container-fluid (100%宽度)
+每一个row由12个col-md-1列组成, 列内是可以嵌套row的
+col-md-offset-4		表示向右偏移4个列
+col-md-push-4		表示向右浮动4个列
+col-md-pull-4		表示向左浮动4个列
+
+-标题
+<h1>到<h6>
+<small>副标题，如<h1>主标题<small>副标题</small></h1>
+
+-段落
+<p>
+class="lead"	对内容进行强调(字体变大)
+class="text-muted"(提示) text-primary(主要) text-success(成果) text-info(通知) text-warning(警告)		text-danger(危险)	对内容进行强调(字体颜色改变)
+<strong>	粗体
+<em>		斜体
+<small>		小号文本
+<u>		下划线文本
+<del>		被删除的文本
+class="text-left"(左对齐) text-center(居中对齐) text-right(右对齐) text-justify(两端对齐)	文本对齐		风格
+class="text-lowercase"(文本小写) text-uppercase(文本大写) text-capitalize(驼峰写法)
+<abbr title="香港">HK.</abbr>	缩略语
+
+-列表
+<ul><li></li></ul>	无序列表
+<ol><li></li></ol>	有序列表
+class="list-unstyled"	ul去除列表前默认有的点和序号等
+class="list-inline"	ul换成水平列表，且去掉了默认的点和序号
+<dl><dt>标题</dt><dd></dd></dl>	定义列表
+
+-代码(一般在博客用)
+<code></code>	显示单行内联代码
+<pre></pre>	显示多行块代码
+class="pre-scrollable"	多行代码块超过340px高度，会在此代码块Y轴出现滚动条
+<kbd></kbd>	显示用户输入代码
+
+-表格
+<table class="table">(基础表格) class="table table-striped"(斑马线表格) table-bordered(带边框的表格)		table-hover(鼠标悬停高亮表格) table-condensed(紧凑型表格) table-responsive(响应式表格)
+<tr class="active"> success info warning danger	 tr提供了五种行背景颜色

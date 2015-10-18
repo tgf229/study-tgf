@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Hello</title>
+</head>
+<body>
+	<script src="./build/react.js"></script>
+	<script src="./build/JSXTransformer.js"></script>
+	<script type="text/jsx">
+
+		var Hello = React.createClass({
+			render:function(){
+				return <p>Hello,world</p>
+			}
+		});
+
+		React.render(<Hello></Hello>,document.body);
+	</script>
+	
+</body>
+</html>

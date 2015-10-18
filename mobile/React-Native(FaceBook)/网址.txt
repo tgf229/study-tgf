@@ -1,0 +1,7 @@
+官方	 http://facebook.github.io/react-native/
+
+中文教程 http://wiki.jikexueyuan.com/project/react-native/
+
+学习指南 http://www.open-open.com/lib/view/open1428847976628.html
+
+简单教程	http://www.oschina.net/translate/going-native-with-react

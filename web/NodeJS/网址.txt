@@ -1,0 +1,7 @@
+官方	 https://nodejs.org/
+
+NPM	https://www.npmjs.com/
+
+论坛	https://cnodejs.org/
+
+学习路线图	http://blog.fens.me/nodejs-roadmap/

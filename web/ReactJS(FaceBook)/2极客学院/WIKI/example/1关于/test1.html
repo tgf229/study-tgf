@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="./build/react.js"></script>
+	<script src="./build/JSXTransformer.js"></script>
+</head>
+<body>
+	<script type="text/jsx">
+		var Timer = React.createClass({
+		  getInitialState: function() {
+		  	console.log('getInitialState 1');
+		    return {secondsElapsed: 0};
+		  },
+		  tick: function() {
+		  	console.log('tick 2');
+		    this.setState({secondsElapsed: this.state.secondsElapsed + 1});
+		  },
+		  componentDidMount: function() {
+		  	console.log('componentDidMount 3');
+		    this.interval = setInterval(this.tick, 1000);
+		  },
+		  componentWillUnmount: function() {
+		  	console.log('componentWillUnmount 4');
+		    clearInterval(this.interval);
+		  },
+		  render: function() {
+		  	console.log('render 5');
+		    return (
+		      <div>Seconds Elapsed: {this.state.secondsElapsed}</div>
+		    );
+		  }
+		});
+
+		React.render(<Timer />, document.body);
+	</script>
+</body>
+</html>

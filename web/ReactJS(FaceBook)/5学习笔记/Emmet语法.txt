@@ -1,0 +1,30 @@
+子代	>	 div>li>li         <div><li><li></li></li></div> 
+兄弟	+
+父代	^
+重复	*
+成组	()
+ID	#
+CLASS	.
+属性	[]
+
+例子:
+(div+p#test>span.test2.test3)*5+p[name="hello"]>div.test4^a*5
+
+<div></div>
+<p id="test"><span class="test2 test3"></span></p>
+<div></div>
+<p id="test"><span class="test2 test3"></span></p>
+<div></div>
+<p id="test"><span class="test2 test3"></span></p>
+<div></div>
+<p id="test"><span class="test2 test3"></span></p>
+<div></div>
+<p id="test"><span class="test2 test3"></span></p>
+<p name="hello">
+	<div class="test4"></div>
+</p>
+<a href=""></a>
+<a href=""></a>
+<a href=""></a>
+<a href=""></a>
+<a href=""></a>
